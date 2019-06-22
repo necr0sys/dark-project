@@ -1,0 +1,32 @@
+@import '../layout/variables';
+@import '../layout/functions';
+@import '../layout/mixins';
+
+.container_msg{
+  margin-top: 50vh;
+  text-transform: capitalize;
+  .msg_animate{
+    opacity: 0;
+    user-select: none;
+  }
+  div, p{
+    padding: 0;
+    margin: 0;
+  }
+  .greenlink_hero_cont{
+    p{
+      font-family: $title;
+      font-style: italic;
+      font-size: 1rem;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    .line{
+      border-bottom: 3px solid #fff;
+      width: 25%;
+    }
+    button{
+      @include btn_small;
+    }
+  }
+}

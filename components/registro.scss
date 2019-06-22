@@ -1,0 +1,101 @@
+@import '../layout/variables';
+//@import '../layout/functions';
+@import '../layout/mixins';
+
+.container_registro{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .header{
+    padding: .5rem;
+  }
+  .body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $prim;
+  }
+  .input_cont{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    label{
+      font-size: .6rem;
+      text-transform: capitalize;
+      margin: .5rem 0 0
+    }
+    input{
+      margin: 0;
+      border: none;
+      border-bottom: 3px solid $prim;
+      outline: none;
+      font-size: .8rem;
+      margin-top: 1rem;
+    }
+    div{
+      text-align: center;
+      padding: .3rem;
+      font-size: .6rem;
+      border-radius: 0;
+      background: $danger;
+    }
+  }
+  .innerContainer{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer{
+    align-self: flex-end;
+    display: flex;
+    justify-content: flex-end;
+    padding: .5rem;
+    margin-top: auto;
+    button{
+      @include btn_small;
+      border-color: $prim;
+      color: $prim;
+      &:hover{
+        color: #fff;
+      }
+    }
+  }
+  .input_date_cont {
+    width: 80%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: left;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    margin-top: 1rem;
+    label{
+      color: $prim;
+      font-size: .8rem;
+      margin: 0;
+    }
+    input{
+      //margin-top: 2rem;
+      border: none;
+      width: 100px;
+      border-bottom: 2px solid $prim;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      margin-left: 5%;
+      outline: none;
+    }
+  }
+  .my_select {
+    width: 80%;
+    font-size: .8rem !important;
+    background: #fff;
+    margin-top: 1rem;
+    border: 3px solid $prim;
+    color: $prim;
+    outline: none;
+  }
+}

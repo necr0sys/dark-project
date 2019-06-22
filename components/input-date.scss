@@ -1,0 +1,24 @@
+@import '../../layout/variables';
+@import '../../layout/functions';
+@import '../../layout/mixins';
+
+.input_date_cont {
+  width: 100%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  text-align: left;
+  margin-left: 30%;
+  span{
+    color: $prim;
+  }
+  input{
+    width: 20%;
+    margin-top: 2rem;
+    border: none;
+    border-bottom: 2px solid $prim;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-left: 5%;
+    outline: none;
+  }
+}

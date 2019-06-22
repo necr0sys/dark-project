@@ -1,0 +1,24 @@
+@import '../layout/variables';
+//@import '../layout/functions';
+//@import '../layout/mixins';
+
+.logo{
+    color: #fff;
+    text-decoration: none;
+    font-family:$title;
+    font-style: italic;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  &:hover{
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  svg{
+    width: 20px;
+    padding: 0;
+    margin:0;
+  }
+  .cls-1{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:1.5px;}.cls-2{fill:#fff;}
+}

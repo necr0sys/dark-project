@@ -1,0 +1,114 @@
+@import './variables';
+@import './functions';
+
+@mixin btn_primary {
+  background: transparent;
+  border: 3px solid $prim;
+  padding: .5rem 2rem;
+  text-align: center;
+  color: $prim;
+  transition: ease 250ms;
+  &:hover{
+    background: $prim;
+    color: #fff;
+    border-color: #fff;
+  }
+  &:focus{
+    outline: none;
+  }
+  &:active {
+    background: $tri;
+    outline: none;
+  }
+}
+
+@mixin btn_secondary {
+  background: transparent;
+  border: 3px solid #fff;
+  padding: .5rem 2rem;
+  text-align: center;
+  color: #fff;
+  transition: ease 250ms;
+  &:hover{
+    background: #fff;
+    color: $prim;
+    border-color: $prim;
+  }
+  &:focus{
+    outline: none;
+  }
+  &:active {
+    background: $gray1;
+    outline: none;
+  }
+}
+
+@mixin gradient($deg) {
+  background: linear-gradient($deg+deg, $prim, $sec, $tri);
+}
+
+@mixin nav-icon-active {
+  color: $danger;
+  cursor: pointer;
+  svg{
+    fill: $danger;
+    width: 15px;
+  }
+}
+
+@mixin nav-icon-deactive {
+  color: $sec;
+  cursor: pointer;
+  font-size: $font-8;
+  svg{
+    width: 15px;
+    fill: $sec;
+  }
+}
+
+@mixin input {
+  label{
+    display: block;
+    width: 100%;
+  }
+  input{
+    width: 100%;
+    border: none;
+    border-bottom: Rem(3) $prim solid;
+    color: $prim;
+    font-size: Rem(18);
+    margin: 0;
+    &:focus{
+      outline: none;
+    }
+  }
+}
+
+@mixin inputPop_cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@mixin msg_request {
+  svg{
+    width: 100px;
+  }
+  p{
+    text-align: center;
+    padding: .5rem;
+  }
+}
+
+@mixin btn_small {
+  border-color: #fff;
+  font-size: .8rem;
+  color: #fff;
+  margin: 0;
+  outline: none;
+  &:hover{
+    background: $prim;
+  }
+}

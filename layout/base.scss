@@ -1,0 +1,28 @@
+@import './variables';
+@import './functions';
+@import './mixins';
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: $text;
+  font-size: 16px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $title;
+}
+
+a{
+  color: $sec;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+    color: $sec;
+  }
+  &:visited{
+    color: $alert;
+  }
+}

@@ -1,0 +1,12 @@
+@import '../layout/variables';
+@import '../layout/functions';
+@import '../layout/mixins';
+
+
+.comments_note_deactive{
+  @include nav-icon-deactive;
+}
+
+.comments_note_active{
+  @include nav_icon_active;
+}

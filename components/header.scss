@@ -1,0 +1,36 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import '../layout/variables';
+@import '../layout/functions';
+@import '../layout/mixins';
+@import '../layout/base';
+
+.header_main_cont{
+  @include gradient(90);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 45px;
+  padding: 0 3%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.btn_cont{
+  font-family: $text;
+  button{
+    border-color: #fff;
+    font-size: .8rem;
+    color: #fff;
+    margin: 0;
+    &:hover{
+      background: $prim;
+    }
+  }
+  p{
+    display: inline-block;
+    margin: 0 .5rem;  
+    color: #fff;
+  }
+}

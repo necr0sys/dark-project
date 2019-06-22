@@ -1,0 +1,15 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import '../layout/variables';
+
+.btn_pop_cont{
+  display: flex;
+  align-items: center;
+  button{
+    background: transparent;
+    border: none;
+    outline: none;
+  &:focus{
+    outline: none;
+  }
+  }
+}
