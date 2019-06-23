@@ -961,6 +961,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var _jsxFileName = "/media/felix/projects/nextjs/components/registro.jsx";
 
 
 
@@ -976,15 +977,35 @@ __webpack_require__.r(__webpack_exports__);
 var RegistroContainer = function RegistroContainer(_ref) {
   var children = _ref.children;
   return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
-    className: "container_registro"
+    className: "container_registro",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 14
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
-    className: "header"
+    className: "header",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_logo__WEBPACK_IMPORTED_MODULE_12__["default"], {
     color: "#669f09",
     logoWidth: "30px",
-    fontSize: "1.2rem"
+    fontSize: "1.2rem",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 16
+    },
+    __self: this
   })), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
-    className: "body"
+    className: "body",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 18
+    },
+    __self: this
   }, children));
 };
 
@@ -1001,10 +1022,20 @@ var Input = function Input(_ref2) {
       onFocus = _ref2.onFocus,
       onChange = _ref2.onChange;
   return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
-    className: "input_cont"
+    className: "input_cont",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
   }, label && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("label", {
     id: "".concat(id, "Label"),
-    htmlFor: id
+    htmlFor: id,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39
+    },
+    __self: this
   }, labelText), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("input", {
     value: value,
     id: id,
@@ -1013,9 +1044,19 @@ var Input = function Input(_ref2) {
     placeholder: placeholder,
     onBlur: onBlur,
     onFocus: onFocus,
-    onChange: onChange
+    onChange: onChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41
+    },
+    __self: this
   }), alert && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Alert"], {
-    id: "".concat(id, "Alert")
+    id: "".concat(id, "Alert"),
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 52
+    },
+    __self: this
   }, alertText));
 };
 
@@ -1024,8 +1065,19 @@ var InputDate = function InputDate(_ref3) {
       onChange = _ref3.onChange,
       onFocus = _ref3.onFocus;
   return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
-    className: "input_date_cont"
-  }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("label", null, "Cumplea\xF1os"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(cleave_js_react__WEBPACK_IMPORTED_MODULE_15___default.a, {
+    className: "input_date_cont",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 62
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("label", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 63
+    },
+    __self: this
+  }, "Cumplea\xF1os"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(cleave_js_react__WEBPACK_IMPORTED_MODULE_15___default.a, {
     onChange: onChange,
     onFocus: onFocus,
     value: value,
@@ -1035,7 +1087,12 @@ var InputDate = function InputDate(_ref3) {
     options: {
       date: true,
       datePattern: ['d', 'm', 'Y']
-    }
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 64
+    },
+    __self: this
   }));
 };
 
@@ -1044,15 +1101,40 @@ var InputSelect = function InputSelect(_ref4) {
   return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("select", {
     onChange: onChange,
     id: "genre",
-    className: "my_select"
+    className: "my_select",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 77
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("option", {
-    defaultValue: "indefinido"
+    defaultValue: "indefinido",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 78
+    },
+    __self: this
   }, "Genero"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("option", {
-    value: "mujer"
+    value: "mujer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 79
+    },
+    __self: this
   }, "Mujer"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("option", {
-    value: "hombre"
+    value: "hombre",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 80
+    },
+    __self: this
   }, "Hombre"), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("option", {
-    value: "otro"
+    value: "otro",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 81
+    },
+    __self: this
   }, "Otro"));
 };
 
@@ -1063,7 +1145,12 @@ var PseudoRegistro = function PseudoRegistro(_ref5) {
       labels = _ref5.labels,
       onClick = _ref5.onClick;
   return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
-    className: "innerContainer"
+    className: "innerContainer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 86
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Input, {
     value: values.mail,
     id: "mail",
@@ -1075,7 +1162,12 @@ var PseudoRegistro = function PseudoRegistro(_ref5) {
     labelText: "Correo",
     onBlur: handlers.onBlur,
     onFocus: handlers.onFocus,
-    onChange: handlers.onChange
+    onChange: handlers.onChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 87
+    },
+    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Input, {
     value: values.pass,
     id: "pass",
@@ -1087,7 +1179,12 @@ var PseudoRegistro = function PseudoRegistro(_ref5) {
     labelText: "Contrase\xF1a",
     onBlur: handlers.onBlur,
     onFocus: handlers.onFocus,
-    onChange: handlers.onChange
+    onChange: handlers.onChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 100
+    },
+    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Input, {
     value: values.rePass,
     id: "rePass",
@@ -1099,13 +1196,28 @@ var PseudoRegistro = function PseudoRegistro(_ref5) {
     labelText: "Repetir contrase\xF1a",
     onBlur: handlers.onBlur,
     onFocus: handlers.onFocus,
-    onChange: handlers.onChange
+    onChange: handlers.onChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 113
+    },
+    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
-    className: "footer"
+    className: "footer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 126
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Button"], {
     onClick: onClick,
     outline: true,
-    color: "primary"
+    color: "primary",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 127
+    },
+    __self: this
   }, "Siguiente")));
 };
 
@@ -1119,7 +1231,12 @@ var Real = function Real(_ref6) {
   return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("form", {
     method: "POST",
     onSubmit: onSubmit,
-    className: "innerContainer"
+    className: "innerContainer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 133
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Input, {
     value: values.name,
     id: "name",
@@ -1131,7 +1248,12 @@ var Real = function Real(_ref6) {
     labelText: "Nombre",
     onBlur: handlers.onBlur,
     onFocus: handlers.onFocus,
-    onChange: handlers.onChange
+    onChange: handlers.onChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 134
+    },
+    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Input, {
     value: values.lastName,
     id: "lastName",
@@ -1143,20 +1265,45 @@ var Real = function Real(_ref6) {
     labelText: "Apellido",
     onBlur: handlers.onBlur,
     onFocus: handlers.onFocus,
-    onChange: handlers.onChange
+    onChange: handlers.onChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 147
+    },
+    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(InputDate, {
     value: values.birthday,
     onBlur: handlers.onBlur,
     onFocus: handlers.onFocus,
-    onChange: handlers.onChange
+    onChange: handlers.onChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 160
+    },
+    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(InputSelect, {
-    onChange: handlers.onChange
+    onChange: handlers.onChange,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 166
+    },
+    __self: this
   }), react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement("div", {
-    className: "footer"
+    className: "footer",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 169
+    },
+    __self: this
   }, react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(reactstrap__WEBPACK_IMPORTED_MODULE_13__["Button"], {
     type: "submit",
     outline: true,
-    color: "primary"
+    color: "primary",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 170
+    },
+    __self: this
   }, "Registrar")));
 };
 
@@ -1295,12 +1442,13 @@ function (_Component) {
           spinner: true,
           real: false
         });
-        isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_11___default()('/login', {
+        isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_11___default()('https://greenlink-project.now.sh/login', {
           headers: {
             "Content-Type": "application/json"
           },
           method: "POST",
-          body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(data)
+          body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(data),
+          mode: "no-cors"
         }).then(function (res) {
           if (res.status === 200) {
             res.text().then(function (resp) {
@@ -1371,7 +1519,13 @@ function (_Component) {
           successText = _this$state3.successText,
           fail = _this$state3.fail,
           failText = _this$state3.failText;
-      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(RegistroContainer, null, pseudo && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(PseudoRegistro, {
+      return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(RegistroContainer, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 333
+        },
+        __self: this
+      }, pseudo && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(PseudoRegistro, {
         onClick: this.onValidate,
         values: {
           mail: mail,
@@ -1392,7 +1546,12 @@ function (_Component) {
           mailLabel: mailLabel,
           passLabel: passLabel,
           rePassLabel: rePassLabel
-        }
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 336
+        },
+        __self: this
       }), real && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(Real, {
         onSubmit: this.onSubmit,
         values: {
@@ -1414,11 +1573,32 @@ function (_Component) {
           nameLabel: nameLabel,
           lastNameLabel: lastNameLabel,
           birthdayLabel: birthdayLabel
-        }
-      }), spinner && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_spinner__WEBPACK_IMPORTED_MODULE_16__["default"], null), success && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_success__WEBPACK_IMPORTED_MODULE_17__["default"], {
-        text: successText
+        },
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 371
+        },
+        __self: this
+      }), spinner && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_spinner__WEBPACK_IMPORTED_MODULE_16__["default"], {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 405
+        },
+        __self: this
+      }), success && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_success__WEBPACK_IMPORTED_MODULE_17__["default"], {
+        text: successText,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 408
+        },
+        __self: this
       }), fail && react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(_fail__WEBPACK_IMPORTED_MODULE_18__["default"], {
-        text: failText
+        text: failText,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 411
+        },
+        __self: this
       }));
     }
   }]);

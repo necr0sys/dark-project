@@ -271,10 +271,11 @@ class Registro extends Component {
         genero: genre,
       };
       this.setState({ spinner: true, real: false });
-      fetch('/login', {
+      fetch('https://greenlink-project.now.sh/login', {
         headers: { "Content-Type": "application/json" },
         method: "POST",
         body: JSON.stringify(data),
+        mode: "no-cors",
       })
         .then(res => {
           if (res.status === 200) {
