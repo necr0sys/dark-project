@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './registro.scss';
 import Router from 'next/router';
+import fetch from 'isomorphic-unfetch'
 import Logo from './logo';
 import { Button, Alert } from 'reactstrap';
 import { validateEmail, validateEmpty } from './utils/functions';
