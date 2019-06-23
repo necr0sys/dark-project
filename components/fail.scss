@@ -1,6 +1,6 @@
-@import '../../layout/variables';
-@import '../../layout/functions';
-@import '../../layout/mixins';
+@import '../layout/variables';
+@import '../layout/functions';
+@import '../layout/mixins';
 
 .msg_request_cont{
 @include msg_request;

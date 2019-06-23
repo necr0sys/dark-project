@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { onRegister } from '../store/actions';
+import { onNav } from '../store/actions';
 import './btn-resp.scss';
 import PopOver from './popOver'
 import GiftNote from './gift';
@@ -33,21 +33,16 @@ const BtnResp = (props) => (
   <div className="btn_pop_cont">
     <CommentNote />
     <GiftNote />
-    <button onClick={props.onRegister} id="btn-resp" type="button">
+    <button onClick={props.onNav} id="btn-resp" type="button">
       {iconBars}
     </button>
-    {console.log(props.nav)}
-    <PopOver />
+    <PopOver popOpen={props.nav} />
   </div> 
 );
 
-/*
+const mapDispatchToProps = dispatch => bindActionCreators({ onNav }, dispatch);
 const mapStateToProps = state => ({
-  nav: state.registro,
+  nav: state.nav,
 });
-const mapDispatchToProps = dispatch => bindActionCreators({onRegister}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(BtnResp);
-*/
-
-export default BtnResp;

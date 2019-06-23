@@ -112,3 +112,10 @@
     background: $prim;
   }
 }
+
+@mixin line($color, $width, $line_width) {
+  border: $line_width solid $color;
+  width: $width;
+  margin: 0;
+  padding: 0;
+}

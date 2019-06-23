@@ -1260,17 +1260,34 @@ function (_App) {
 /*!**************************!*\
   !*** ./store/actions.js ***!
   \**************************/
-/*! exports provided: ON_REGISTER, onRegister */
+/*! exports provided: ON_NAV, ON_REGISTER, ON_LOGIN, onNav, onRegister, onLogin */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ON_NAV", function() { return ON_NAV; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ON_REGISTER", function() { return ON_REGISTER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ON_LOGIN", function() { return ON_LOGIN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onNav", function() { return onNav; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onRegister", function() { return onRegister; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "onLogin", function() { return onLogin; });
+var ON_NAV = 'ON_NAV';
 var ON_REGISTER = 'ON_REGISTER';
+var ON_LOGIN = 'ON_LOGIN';
+var onNav = function onNav() {
+  return {
+    type: ON_NAV
+  };
+};
 var onRegister = function onRegister() {
   return {
     type: ON_REGISTER
+  };
+};
+var onLogin = function onLogin(option) {
+  return {
+    type: ON_LOGIN,
+    option: option
   };
 };
 
@@ -1293,7 +1310,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var initialState = {
-  registro: false
+  nav: false,
+  registro: false,
+  login: false
+};
+
+var nav = function nav() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState.nav;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  if (action.type === _actions__WEBPACK_IMPORTED_MODULE_1__["ON_NAV"]) {
+    return !state;
+  }
+
+  return state;
 };
 
 var registro = function registro() {
@@ -1307,8 +1337,21 @@ var registro = function registro() {
   return state;
 };
 
+var login = function login() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState.login;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  if (action.type === _actions__WEBPACK_IMPORTED_MODULE_1__["ON_LOGIN"]) {
+    return action.option;
+  }
+
+  return state;
+};
+
 var greenlink = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  registro: registro
+  registro: registro,
+  login: login,
+  nav: nav
 });
 
 /***/ }),
@@ -1330,24 +1373,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducers */ "./store/reducers.js");
 
 
-
-/*const myInitialState = {
-  registro: false,
-  nav: false,
-}
-
-const ON_NAV_OPEN = 'ON_NAV_OPEN';
-
-const reducer = (state = myInitialState, action) => {
-  if (action.type === ON_NAV_OPEN) {
-    return Object.assign({}, state, {nav: !state.nav});
-  }
-  return state;
-};
-
-export const onNavOpen = () => {
-  return {type: ON_NAV_OPEN}
-}*/
 
 var initializeStore = function initializeStore() {
   var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _reducers__WEBPACK_IMPORTED_MODULE_2__["initialState"];

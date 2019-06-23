@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import './registro.scss';
+import Router from 'next/router';
 import Logo from './logo';
 import { Button, Alert } from 'reactstrap';
 import { validateEmail, validateEmpty } from './utils/functions';
 import Cleave from 'cleave.js/react';
 import Spinner from './spinner';
+import Success from './success';
+import Fail from './fail';
 
 const RegistroContainer = ({ children }) => (
   <div className="container_registro">
@@ -70,8 +73,8 @@ const InputDate = ({
 );
 
 const InputSelect = ({ onChange }) => (
-  <select onChange={onChange} id="genero" className="my_select">
-    <option disabled value={false} defaultValue="Genero">Genero</option>
+  <select onChange={onChange} id="genre" className="my_select">
+    <option defaultValue="indefinido">Genero</option>
     <option value="mujer">Mujer</option>
     <option value="hombre">Hombre</option>
     <option value="otro">Otro</option>
@@ -193,11 +196,11 @@ class Registro extends Component {
       birthdayAlert: false,
       birthdayLabel: false,
       genre: '',
-      genreAlert: false,
-      genreLabel: false,
       spinner: false,
       success: false,
+      successText: '',
       fail: false,
+      failText: false,
     }
     this.onBlur = this.onBlur.bind(this);
     this.onFocus = this.onFocus.bind(this);
@@ -242,6 +245,8 @@ class Registro extends Component {
   onSubmit(e) {
     e.preventDefault();
     const {
+      mail,
+      pass,
       name,
       lastName,
       birthday,
@@ -253,16 +258,44 @@ class Registro extends Component {
       this.setState({ lastNameAlert: true });
     } else if (!validateEmpty(birthday)){
       this.setState({ birthday: '31/12/1970' });
-    } else if(!validateEmpty(genero)){
+    } else if(!validateEmpty(genre)){
       this.setState({ genero: 'indefinido' });
     } else {
       const data = {
-        name,
-        lastName,
-        birthday,
-        genero,
+        mail: mail,
+        pass, pass,
+        name: name,
+        lastName: lastName,
+        birthday: birthday,
+        genero: genre,
       };
       this.setState({ spinner: true, real: false });
+      fetch('/login', {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify(data),
+      })
+        .then(res => {
+          if (res.status === 200) {
+            res.text()
+              .then(resp => {
+                this.setState({ spinner: false, success: true, successText: `${resp} agregado con exito` });
+                setTimeout(() => {
+                  this.setState({ pseudo: true, success: false, successText: '' });
+                  window.location="/perfil";
+                }, 3000);
+              });
+          } else {
+            res.text()
+              .then(resp => {
+                this.setState({ spinner: false, fail: true, failText: `${resp} ya existe, intente de nuevo` });
+                setTimeout(() => {
+                  this.setState({ pseudo: true, fail: false, failText: '' });
+                }, 3000);
+              })
+          }
+        })
+        .catch(err => console.log(err));
     }
   }
 
@@ -288,12 +321,11 @@ class Registro extends Component {
       birthday,
       birthdayAlert,
       birthdayLabel,
-      genre,
-      genreAlert,
-      genreLabel,
       spinner,
       success,
+      successText,
       fail,
+      failText,
     } = this.state;
     return(
       <RegistroContainer>
@@ -369,6 +401,12 @@ class Registro extends Component {
         }
         {
           spinner && <Spinner />
+        }
+        {
+          success && <Success text={successText} />
+        }
+        {
+          fail && <Fail text={failText} />
         }
       </RegistroContainer>
     )
