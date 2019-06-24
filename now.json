@@ -4,6 +4,5 @@
   "name": "greenlink-project",
   "builds": [
     { "src": "next.config.js", "use": "@now/next" },
-    { "src" : "server.js", "use": "@now/node"}
   ]
 }

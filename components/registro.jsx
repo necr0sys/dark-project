@@ -271,7 +271,8 @@ class Registro extends Component {
         genero: genre,
       };
       this.setState({ spinner: true, real: false });
-      fetch('/login', {
+      fetch('https://express-apis-b6qf0b8hl.now.sh/foo', 
+      {
         headers: { "Content-Type": "application/json" },
         method: "POST",
         body: JSON.stringify(data),
