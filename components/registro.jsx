@@ -271,7 +271,7 @@ class Registro extends Component {
         genero: genre,
       };
       this.setState({ spinner: true, real: false });
-      fetch('https://express-apis.ftandcompany.now.sh/registro',
+      fetch('/api/registro',
       {
         headers: { "Content-Type": "application/json" },
         method: "POST",
