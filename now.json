@@ -3,8 +3,8 @@
   "alias": "greenlink-project",
   "name": "greenlink-project",
   "builds": [
-    { "src": "api/*.js", "use": "@now/node" },
-    { "src": "next.config.js", "use": "@now/next" }
+    { "src": "next.config.js", "use": "@now/next" },
+    { "src": "api/*.js", "use": "@now/node" }
   ],
   "routes": [
     {
@@ -22,6 +22,6 @@
         "Access-Control-Allow-Methods": "POST, OPTIONS",
         "Access-Control-Allow-Headers": "X-Requested-With, Content-Type, Accept"
       }
-    },
+    }
   ]
 }
