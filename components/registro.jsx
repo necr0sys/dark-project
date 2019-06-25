@@ -271,7 +271,7 @@ class Registro extends Component {
         genero: genre,
       };
       this.setState({ spinner: true, real: false });
-      fetch('https://express-apis-b6qf0b8hl.now.sh/foo', 
+      fetch('https://express-apis.ftandcompany.now.sh/registro',
       {
         headers: { "Content-Type": "application/json" },
         method: "POST",
@@ -284,7 +284,7 @@ class Registro extends Component {
                 this.setState({ spinner: false, success: true, successText: `${resp} agregado con exito` });
                 setTimeout(() => {
                   this.setState({ pseudo: true, success: false, successText: '' });
-                  window.location="/perfil";
+                  window.location="/login";
                 }, 3000);
               });
           } else {

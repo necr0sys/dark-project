@@ -1,2 +1,10 @@
-const Login = () => <h1>HOla mundo</h1>;
-/*{ "src": "next.config.js", "use": "@now/next" },*/
+import Layout from '../components/layout';
+import Login from '../components/login';
+
+const LoginPage = () => (
+  <Layout>
+    <Login />
+  </Layout>
+);
+
+export default LoginPage;

@@ -1,0 +1,66 @@
+@import '../layout/variables';
+//@import '../layout/functions';
+@import '../layout/mixins';
+
+.login_main_cont{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  .form_cont{
+    border: 1px solid $prim;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form_login{
+    text-align: center;
+    padding-bottom: 1rem;
+  }
+  .input_cont{
+    border: 0.5px solid $sec;
+    margin: 1.5rem 0;
+    padding: .5rem 0 0;
+    position: relative;
+    border-bottom: 3px solid $prim;
+    label{
+      top: -.5rem;
+      left: .5rem;
+      //background: transparent;
+      //color: transparent;
+      background: #fff;
+      color: $prim;
+      padding: 0 0.3rem;
+      font-size: 11px;
+      display: block;
+      margin: 0;
+      position: absolute;
+    }
+    input{
+      padding: 0 .5rem;
+      border: none;
+      margin: 0;
+      width: 95%;
+      outline: none;
+    }
+  }
+  button{
+    @include btn_small;
+    background: $prim;
+    align-self: flex-end;
+    &:hover{
+      background: $sec;
+    }
+  }
+}
+.popMsg{
+  p{
+    height: 100%;
+    padding: 0;
+    margin: .5rem;
+    font-size: 11px;
+    color: $danger;
+  }
+}

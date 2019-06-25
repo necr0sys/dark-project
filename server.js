@@ -4,6 +4,7 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const bodyParser = require('body-parser');
+const NewUser = require('./utils/new-user');
 const uuidv1 = require('uuid/v1');
 
 const users = [
@@ -73,29 +74,39 @@ app
   .then(() => {
     const server = express();
     server.use(bodyParser.json());
-    server.use(bodyParser.urlencoded({ extended: true }));
-    server.get('/p/:id', (req, res) => {
-      const actualPage = '/post';
-      console.log(req.params.id);
-      const queryParams = { title: req.params.id };
-      app.render(req, res, actualPage, queryParams);
-    });
-    server.get('*', (req, res) => {
-      return handle(req, res)
-    });
-    server.post('/login', (req, res) => {
+    server.use(bodyParser.urlencoded({ extended: false }));
+    server.post('/registro', (req, res) => {
       const data = req.body;
       const checkMail = users.find((user) => {
         return user.mail === data.mail;
       })
+      console.log(checkMail);
       setTimeout(() => {
         if (checkMail) {
-          res.status(501).send(data.mail);
+          res.status(501).send(checkMail.mail);
         } else {
-          res.status(200).send(data.mail);
+          user = new NewUser(data);
+          users.push(user);
+          res.status(200).send(user.fullName);
         }
       },3000)
-    })
+    });
+    server.post('/login', (req, res) => {
+      const data = req.body;
+      const checkMail = users.find((user) => {
+        return user.mail === data.mail && user.pass === data.pass;
+      })
+      setTimeout(() => {
+        if (checkMail) {
+          res.status(200).send();
+        } else {
+          res.status(501).send();
+        }
+      },3000)
+    });
+    server.get('*', (req, res) => {
+      return handle(req, res)
+    });
     server.listen(3000, err => {
       if (err) throw err;
       console.log('Server listen in port 3000');
