@@ -50,14 +50,16 @@
 
 .perfil_user_cont{
   width: 35vw;
+  height: 80vh;
   position: absolute;
   right: -1%;
-  bottom: -10%;
+  top: 5%;
   box-shadow: 5px 5px 15px #000;
   border: 3px solid #fff;
+  //overflow: hidden;
 }
 .user_img{
-  display: block;
+  width: 100%;
 }
 .user_name{
   background: #fff;
@@ -66,4 +68,7 @@
   text-transform: capitalize;
   font-weight: 700;
   padding: .5rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }

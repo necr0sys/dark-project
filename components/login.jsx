@@ -5,6 +5,7 @@ import Logo from './logo';
 import { validateEmail, validateEmpty } from './utils/functions';
 import Fail from './fail';
 import Spinner from './spinner';
+import Router from 'next/router';
 
 class Login extends Component {
   constructor(props){
@@ -62,7 +63,10 @@ class Login extends Component {
         .then(res => {
           if (res.status === 200) {
             this.setState({ spinner: false, login: true });
-            window.location="/perfil";
+            res.text()
+              .then(res => {
+                Router.push(`/perfil?id=${res}`);
+              })
           } else {
               this.setState({ fail: true, login: false, spinner: false });
               setTimeout(() => {

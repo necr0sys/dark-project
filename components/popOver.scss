@@ -22,4 +22,20 @@ ul{
       color: #fff;
     }
   }
+  button{
+    text-align: center;
+    color: $prim;
+    font-size: $font-8;
+    border-radius: 2px;
+    width: 100%;
+    background: transparent;
+    border-style: solid;
+    outline: none;
+    border: none;
+    &:hover{
+      text-decoration: none;
+      background: $prim;
+      color: #fff;
+    }
+  }
 };

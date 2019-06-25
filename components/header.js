@@ -10,7 +10,7 @@ import Head from 'next/head'
 
 const Header = (props) => (
   <>
-  <Head>
+ <Head>
     <link rel="stylesheet" href="/static/animate.min.css"/>
   </Head>
   <header className="header_main_cont">

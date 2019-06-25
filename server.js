@@ -6,8 +6,12 @@ const handle = app.getRequestHandler();
 const bodyParser = require('body-parser');
 const NewUser = require('./utils/new-user');
 const uuidv1 = require('uuid/v1');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const UserSchema = require('./models/user');
+dotenv.config();
 
-const users = [
+/*const users = [
   {
     id: 'greenlink-default-user',
     mail: 'queen-green@gmail.com',
@@ -45,7 +49,7 @@ const users = [
     lastName: 'tineo',
     birthday: '13/05/1986',
     genre: 'hombre',
-    perfilImg: '/static/queengreen.jpg',
+    perfilImg: '/static/felix.jpg',
     frontPageImg: '/static/queenfront.jpg',
     frontPageQuote: '"crear un mundo mas limpio es nuestro deber, nuestro derecho es disfrutarlo! compartiendo... con los seres que amamos"',
     greencoins:5000,
@@ -66,7 +70,7 @@ const users = [
     friends:['admin'],
     gifts:['fanta', 'snikers', 'oreo'],
   },
-];
+];*/
 
 
 app
@@ -75,7 +79,32 @@ app
     const server = express();
     server.use(bodyParser.json());
     server.use(bodyParser.urlencoded({ extended: false }));
-    server.post('/registro', (req, res) => {
+
+    const mongoDB = process.env.URI_DB;
+    mongoose.connect(mongoDB);
+    mongoose.Promise = global.Promise;
+    const db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'Error la conexion a la base de datos fallo'));
+
+    server.post('/bar', (req, res) => {
+      let finder = '';
+      const data = req.body;
+      UserSchema.find({ mail: data.mail, pass: data.pass }, (err, user) => {
+        if (err) return console.error(err);
+        console.log(user)
+        res.status(200).send('existe');
+      })
+    })
+    server.post('/foo', (req, res) => {
+      console.log(req.body);
+      user = req.body;
+      const myUser = new UserSchema(user);
+      myUser.save((err) => {
+        if (err) return console.log(err);
+        console.log('usuario agregado');
+      });
+    })
+    server.post('/api/registro', (req, res) => {
       const data = req.body;
       const checkMail = users.find((user) => {
         return user.mail === data.mail;
@@ -91,19 +120,25 @@ app
         }
       },3000)
     });
-    server.post('/login', (req, res) => {
+    server.post('/api/login', (req, res) => {
       const data = req.body;
       const checkMail = users.find((user) => {
         return user.mail === data.mail && user.pass === data.pass;
       })
       setTimeout(() => {
         if (checkMail) {
-          res.status(200).send();
+          res.status(200).send(checkMail.id);
         } else {
           res.status(501).send();
         }
       },3000)
     });
+    server.get('/api/perfil/:id', (req, res) => {
+      user = users.find((user) => {
+        return user.id === req.params.id;
+      })
+      res.status(200).json(user);
+    })
     server.get('*', (req, res) => {
       return handle(req, res)
     });

@@ -5,11 +5,11 @@ import { bindActionCreators } from 'redux';
 import Layout from '../components/layout';
 import './perfil.scss';
 const user = {
-  name: 'sophie',
+  //name: 'sophie',
   lastName: 'green',
   mail: 'queen-green@gmail.com',
   birthday: '22/06/2019',
-  perfilImg: '/static/queengreen.jpg',
+  //perfilImg: '/static/queengreen.jpg',
   frontPageImg: '/static/queenfront.jpg',
   frontPageQuote: '"crear un mundo mas limpio es nuestro deber, nuestro derecho es disfrutarlo! compartiendo... con los seres que amamos"',
 }
@@ -20,27 +20,28 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    const { onLogin, login } = this.props;
-    console.log(login);
+    const { onLogin, login, usr } = this.props;
     onLogin(true);
+    console.log(usr)
   }
 
   render() {
+    const { usr } = this.props;
     return(
       <Layout>
         <div className="perfil_main_cont">
           <header className="header_perfil_cont shadow-lg shadow" style={{ background:`url(${user.frontPageImg})center center no-repeat`, backgroundSize: 'cover' }}>
             <div className="greeting">
-              <h1>hola, me llamo {user.name}</h1>
+              <h1>hola, me llamo {usr.name}</h1>
               <div className="quote">
-                <p>{user.frontPageQuote}</p>
+                <p>{usr.frontPageQuote}</p>
                 <div className="line" />
               </div>
             </div>
             <footer className="perfil_header_footer" />
-            <div className="perfil_user_cont">
-              <img className="img-fluid user_img" src={user.perfilImg} />
-              <p className="user_name">{user.name}{" "}{user.lastName}</p>
+            <div className="perfil_user_cont" style={{ background: `url(${usr.perfilImg}) center top no-repeat`, backgroundSize: 'cover' }}>
+              
+              <p className="user_name">{usr.name}{" "}{usr.lastName}</p>
             </div>
           </header>
         </div>

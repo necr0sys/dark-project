@@ -3,7 +3,10 @@ const helmet = require('helmet');
 const cors = require('cors');
 const compression = require('compression');
 const bodyParser = require('body-parser');
-const NewUser = require('../utils/new-user');
+//const NewUser = require('../utils/new-user');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const User = require('../models/user');
 
 const app = express();
 
@@ -12,8 +15,15 @@ app.use(cors());
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+dotenv.config();
 
-const users = [
+const mongoDB = process.env.URI_DB;
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Error la conexion a la base de datos fallo'));
+
+/*const users = [
   {
     id: 'greenlink-default-user',
     mail: 'queen-green@gmail.com',
@@ -72,11 +82,25 @@ const users = [
     friends:['admin'],
     gifts:['fanta', 'snikers', 'oreo'],
   },
-];
+];*/
 
 app.post('*', (req, res) => {
   const data = req.body;
-  const checkMail = users.find((user) => {
+  User.find({ mail: req.mail }, (err, user) => {
+    if(err) return console.error(err);
+    if (user) {
+      res.status(501).send(data.mail);
+    } else {
+      const newUser = new User(data);
+      newUser.save((err) => {
+        if (err) return console.error(err);
+        res.status(200).send(data.mail);
+      })
+    }
+  })
+  //const user = new User(data);
+
+  /*const checkMail = users.find((user) => {
     return user.mail === data.mail;
   })
   if (checkMail) {
@@ -85,7 +109,7 @@ app.post('*', (req, res) => {
     user = new NewUser(data);
     users.push(user);
     res.status(200).send(user.fullName);
-  }
+  }*/
 });
 
 module.exports = app;
