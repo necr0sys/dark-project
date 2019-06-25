@@ -2,14 +2,12 @@
   "version": 2,
   "alias": "greenlink-project",
   "name": "greenlink-project",
+  "env": {
+    "URI_DB": "mongodb://greenlinkproject:greenpass1@ds050739.mlab.com:50739/greenlink" 
+  },
   "builds": [
     { "src": "next.config.js", "use": "@now/next" },
-    { "src": "api/*.js", "use": "@now/node" },
-    {
-      "env": {
-        "URI_DB": "mongodb://greenlinkproject:greenpass1@ds050739.mlab.com:50739/greenlink"
-      }
-    }
+    { "src": "api/*.js", "use": "@now/node" }
   ],
   "routes": [
     {
