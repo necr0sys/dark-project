@@ -158,3 +158,4 @@ app
     console.log(ex.stack);
     process.exit(1);
   });
+//"src": "/api/perfil/(?<id>[^/]*)", "dest": "/api/perfil.js?id=$id",
