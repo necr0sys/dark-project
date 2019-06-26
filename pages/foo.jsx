@@ -28,7 +28,7 @@ class Foo extends Component {
       method:'POST',
       body: JSON.stringify(data),
     }
-    fetch('/bar', options)
+    fetch('/foo', options)
       .then(res => res.text())
        .then(res => {
          console.log(res);

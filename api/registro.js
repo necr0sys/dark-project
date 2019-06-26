@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 //const NewUser = require('../utils/new-user');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const User = require('../models/user');
+const UserSchema = require('../models/user');
 
 const app = express();
 
@@ -84,20 +84,16 @@ db.on('error', console.error.bind(console, 'Error la conexion a la base de datos
   },
 ];*/
 
-app.post('*', (req, res) => {
-  const data = req.body;
-  User.find({ mail: req.mail }, (err, user) => {
-    if(err) return console.error(err);
-    if (user) {
-      res.status(501).send(data.mail);
-    } else {
-      const newUser = new User(data);
-      newUser.save((err) => {
-        if (err) return console.error(err);
-        res.status(200).send(data.mail);
-      })
-    }
-  })
+app.post('*', async (req, res) => {
+  const user = req.body;
+  const newUser = UserSchema(user);
+  const isRegistred = await UserSchema.find({ mail: user.mail });
+  if (isRegistred[0]) {
+    res.status(501).send(user.mail);
+  } else {
+    newUser.save();
+    res.status(200).send(user.mail);
+  }
   //const user = new User(data);
 
   /*const checkMail = users.find((user) => {

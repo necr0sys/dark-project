@@ -95,14 +95,21 @@ app
         res.status(200).send('existe');
       })
     })
-    server.post('/foo', (req, res) => {
-      console.log(req.body);
+    server.post('/foo', async (req, res) => {
       user = req.body;
-      const myUser = new UserSchema(user);
-      myUser.save((err) => {
+      const newUser = new UserSchema(user);
+      const findUser = await UserSchema.find({ mail: user.mail });
+      if (findUser[0]) {
+        res.status(501).send(findUser[0].mail);
+      } else {
+        newUser.save();
+        res.status(200).send(user.mail);
+      }
+
+      /*myUser.save((err) => {
         if (err) return console.log(err);
         console.log('usuario agregado');
-      });
+      });*/
     })
     server.post('/api/registro', (req, res) => {
       const data = req.body;
