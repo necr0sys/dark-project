@@ -24,9 +24,9 @@ db.on('error', console.error.bind(console, 'Error la conexion a la base de datos
 
 app.post('*', async (req, res) => {
   const user = req.body;
-  const validateUser = await UserSchema.find({ mail: user.mail, pass: user.pass });
+  const validateUser = await UserSchema.findOne({ mail: user.mail, pass: user.pass });
   if (validateUser[0]) {
-    res.status(200).send(validateUser[0].id);
+    res.status(200).send(validateUser.id);
   } else {
     res.status(501).send();
   }
