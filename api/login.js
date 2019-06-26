@@ -3,6 +3,9 @@ const helmet = require('helmet');
 const cors = require('cors');
 const compression = require('compression');
 const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+const mongoose = require('mongoose');
+const UserSchema = require('../models/user');
 
 const app = express();
 
@@ -11,19 +14,23 @@ app.use(cors());
 app.use(compression());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+dotenv.config();
 
-app.post('*', (req, res) => {
-  const data = req.body;
-  const checkMail = users.find((user) => {
-    return user.mail === data.mail && user.pass === data.pass;
-  })
-  setTimeout(() => {
-    if (checkMail) {
-      res.status(200).send();
-    } else {
-      res.status(501).send();
-    }
-  },3000)
+const mongoDB = process.env.URI_DB;
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'Error la conexion a la base de datos fallo'));
+
+app.post('*', async (req, res) => {
+  const user = req.body;
+  const validateUser = await UserSchema.find({ mail: user.mail, pass: user.pass });
+  if (validateUser[0]) {
+    res.status(200).send(validateUser[0].id);
+  } else {
+    res.status(501).send();
+  }
+
 });
 
 module.exports = app;

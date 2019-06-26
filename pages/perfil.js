@@ -18,9 +18,8 @@ const App = (props) => (
 
 App.getInitialProps = async (context) => {
   const { id } = context.query;
-  const res = await fetch(`http://localhost:3000/api/perfil/${id}`);
+  const res = await fetch(`/api/perfil/${id}`);
   const usr = await res.json();
-  console.log(usr);
   return { usr };
 };
 
