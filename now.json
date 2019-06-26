@@ -27,7 +27,7 @@
       }
     },
     {
-      "src": "/api/perfil/(?<id>[^/]+)", "dest": "/api/perfil?id=$id",
+      "src": "/api/perfil", "dest": "/api/perfil?id=$id",
       "headers": {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET, OPTIONS",
