@@ -2279,7 +2279,7 @@ function (_Component) {
     value: function onSubmit2(e) {
       e.preventDefault();
       fetch('https://greenlink-project.now.sh/api/perfil/?id=5d12c8f8c2e0767a295b2abd').then(function (res) {
-        return res.text();
+        return res.json();
       }).then(function (res) {
         return console.log(res);
       });
@@ -2330,7 +2330,7 @@ function (_Component) {
   return Foo;
 }(react__WEBPACK_IMPORTED_MODULE_8__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (Foo);
+/* harmony default export */ __webpack_exports__["default"] = (Foo); //?id=$id"
 
 /***/ }),
 

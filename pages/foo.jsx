@@ -42,7 +42,7 @@ class Foo extends Component {
   onSubmit2(e) {
     e.preventDefault();
     fetch('https://greenlink-project.now.sh/api/perfil/?id=5d12c8f8c2e0767a295b2abd')
-      .then(res => res.text())
+      .then(res => res.json())
       .then(res => console.log(res));
   }
 
