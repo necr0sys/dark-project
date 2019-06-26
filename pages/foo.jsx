@@ -10,7 +10,7 @@ class Foo extends Component {
       reqid: '',
     }
     this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
+    //this.onSubmit = this.onSubmit.bind(this);
     this.onSubmit2 = this.onSubmit2.bind(this);
   }
 
@@ -18,7 +18,7 @@ class Foo extends Component {
     this.setState({ [e.target.id]: e.target.value });
   }
 
-  onSubmit(e) {
+ /* onSubmit(e) {
     e.preventDefault();
     const { mail, pass } = this.state;
     const data = {
@@ -37,11 +37,19 @@ class Foo extends Component {
         console.log(res)
        })
       .catch(err => console.log(err));
-  }
+  }*/
 
   onSubmit2(e) {
     e.preventDefault();
-    fetch('https://greenlink-project.now.sh/api/perfil/?id=5d12c8f8c2e0767a295b2abd')
+    const { reqid } = this.state;
+    const data = {
+      id: reqid,
+    }
+    fetch('/bar',{
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+      method: "POST",
+    })
       .then(res => res.json())
       .then(res => console.log(res));
   }
@@ -65,8 +73,9 @@ class Foo extends Component {
           <input value={ this.state.pass } id="pass" type="text" onChange={this.onChange}/>
           <button type="submit">Enviar</button>
         </form>
-        <form method="GET" onSubmit={this.onSubmit2}>
-          <input value={ this.state.mail } id="reqid" type="text" onChange={this.onChange}/>
+
+        <form method="POST" onSubmit={this.onSubmit2}>
+          <input value={ this.state.reqid } id="reqid" type="text" onChange={this.onChange}/>
           <button type="submit">enviar id</button>
         </form>
       </div>

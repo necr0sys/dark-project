@@ -16,9 +16,9 @@ const App = (props) => (
   </div>
 );
 
-App.getInitialProps = async (context) => {
-  const { id } = context.query;
-  const res = await fetch(`https://greenlink-project.now.sh/api/perfil/?id=${id}`);
+App.getInitialProps = async ({ query }) => {
+  const id = query.id;
+  const res = await fetch(`https://greenlink-project.now.sh/api/perfil?id=${id}`);
   const usr = await res.json();
   return { usr };
 };

@@ -22,7 +22,7 @@ mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Error la conexion a la base de datos fallo'));
 
-app.get('*', async (req, res) => {
+app.get('/api/perfil/:id', async (req, res) => {
   const id = req.params.id;
   const data = await UserSchema.findById(id);
   res.status(200).json(data);

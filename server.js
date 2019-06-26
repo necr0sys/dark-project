@@ -80,11 +80,17 @@ app
     server.use(bodyParser.json());
     server.use(bodyParser.urlencoded({ extended: false }));
 
-    /*const mongoDB = process.env.URI_DB;
+    const mongoDB = process.env.URI_DB;
     mongoose.connect(mongoDB);
     mongoose.Promise = global.Promise;
     const db = mongoose.connection;
-    //db.on('error', console.error.bind(console, 'Error la conexion a la base de datos fallo'));*/
+    db.on('error', console.error.bind(console, 'Error la conexion a la base de datos fallo'));
+
+    server.post('/bar', async (req, res) => {
+      const reqId = req.body.id;
+      const user = await UserSchema.findById(reqId);
+      res.status(200).send(user);
+    })
 
     server.get('/foo/:id',(req, res) => {
       console.log('res');
