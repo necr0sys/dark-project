@@ -23,15 +23,16 @@ class Foo extends Component {
       mail: mail,
       pass: pass,
     }
+
     const options = {
       headers: { "Content-type" : 'application/json' },
-      method:'POST',
-      body: JSON.stringify(data),
+      method:'GET',
+      //body: JSON.stringify(data),
     }
-    fetch('/foo', options)
+    fetch(`/foo`, options)
       .then(res => res.text())
        .then(res => {
-         console.log(res);
+         
        })
       .catch(err => console.log(err));
   }
@@ -40,7 +41,8 @@ class Foo extends Component {
       <div className="container">
         <p className="msg">{this.state.fooText}</p>
         <form
-        mthod="POST" onSubmit={this.onSubmit}
+        //mthod="POST"
+        //onSubmit={this.onSubmit}
         style={{
           display: "flex",
           flexDirection: "column",
@@ -51,8 +53,9 @@ class Foo extends Component {
         >
           <input value={ this.state.mail } id="mail" type="text" onChange={this.onChange}/>
           <input value={ this.state.pass } id="pass" type="text" onChange={this.onChange}/>
-          <button type="submit">Enviar</button>
+          <button onClick={this.onSubmit} type="button">Enviar</button>
         </form>
+        <a href="/foo?name=felix">fooooo</a>
       </div>
     )
   }

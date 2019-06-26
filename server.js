@@ -80,37 +80,18 @@ app
     server.use(bodyParser.json());
     server.use(bodyParser.urlencoded({ extended: false }));
 
-    const mongoDB = process.env.URI_DB;
+    /*const mongoDB = process.env.URI_DB;
     mongoose.connect(mongoDB);
     mongoose.Promise = global.Promise;
     const db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'Error la conexion a la base de datos fallo'));
+    //db.on('error', console.error.bind(console, 'Error la conexion a la base de datos fallo'));*/
 
-    server.post('/bar', (req, res) => {
-      let finder = '';
-      const data = req.body;
-      UserSchema.find({ mail: data.mail, pass: data.pass }, (err, user) => {
-        if (err) return console.error(err);
-        console.log(user)
-        res.status(200).send('existe');
-      })
-    })
-    server.post('/foo', async (req, res) => {
-      user = req.body;
-      const newUser = new UserSchema(user);
-      const findUser = await UserSchema.find({ mail: user.mail });
-      if (findUser[0]) {
-        res.status(501).send(findUser[0].mail);
-      } else {
-        newUser.save();
-        res.status(200).send(user.mail);
-      }
-
-      /*myUser.save((err) => {
-        if (err) return console.log(err);
-        console.log('usuario agregado');
-      });*/
-    })
+    server.get('/foo/:id',(req, res) => {
+      console.log('res');
+      name = req.params.id;
+      console.log("name");
+      res.status(200).send("name");
+    });
     server.post('/api/registro', (req, res) => {
       const data = req.body;
       const checkMail = users.find((user) => {
