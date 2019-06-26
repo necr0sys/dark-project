@@ -65,7 +65,7 @@ class Login extends Component {
             this.setState({ spinner: false, login: true });
             res.text()
               .then(res => {
-                Router.push(`/perfil?id=${res}`);
+                window.location=`/perfil?id=${res}`;
               })
           } else {
               this.setState({ fail: true, login: false, spinner: false });
