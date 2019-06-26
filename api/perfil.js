@@ -25,7 +25,7 @@ db.on('error', console.error.bind(console, 'Error la conexion a la base de datos
 app.get('*', async (req, res) => {
   const id = req.params.id;
   const data = await UserSchema.findById(id);
-  res.status(200).json(data[0]);
+  res.status(200).json(data);
 });
 
 module.exports = app;
