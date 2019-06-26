@@ -45,11 +45,14 @@ class Foo extends Component {
     const data = {
       id: reqid,
     }
-    fetch('/bar',{
+    fetch('https://greenlink-project.now.sh/api/perfil?id=5d12de4b45e676da0a477ea1',{
+      mode:'cors',
+    }
+    /*,{
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
       method: "POST",
-    })
+    }*/)
       .then(res => res.json())
       .then(res => console.log(res));
   }
@@ -74,9 +77,9 @@ class Foo extends Component {
           <button type="submit">Enviar</button>
         </form>
 
-        <form method="POST" onSubmit={this.onSubmit2}>
+        <form>
           <input value={ this.state.reqid } id="reqid" type="text" onChange={this.onChange}/>
-          <button type="submit">enviar id</button>
+          <button onClick={this.onSubmit2} type="button">enviar id</button>
         </form>
       </div>
     )

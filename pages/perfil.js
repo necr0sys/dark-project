@@ -18,7 +18,14 @@ const App = (props) => (
 
 App.getInitialProps = async ({ query }) => {
   const id = query.id;
-  const res = await fetch(`https://greenlink-project.now.sh/api/perfil?id=${id}`);
+  const data = {
+    reqid: id,
+  }
+  const res = await fetch(`https://greenlink-project.now.sh/api/perfil?id=${id}`,{
+    headers: { "Content-Type": "application/json" },
+    method: "POST",
+    body: JSON.stringify(data),
+  });
   const usr = await res.json();
   return { usr };
 };
