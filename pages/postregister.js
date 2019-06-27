@@ -7,7 +7,7 @@ const App = props => (
   </Layout>
 );
 
-applicationCache.getInitialProps = ({ query }) => {
+App.getInitialProps = ({ query }) => {
   const id = query.id;
   return { id };
 }
