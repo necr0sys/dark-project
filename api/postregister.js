@@ -11,11 +11,11 @@ db.on('error', console.error.bind(console, 'Error la conexion a la base de datos
 
 app.post('*', async (req, res) => {
   const { id, img } = req.body;
-  const res = await UserSchema.findByIdAndUpdate(id, { perfilImg: img }, (err, info) => {
+  const isOk = await UserSchema.findByIdAndUpdate(id, { perfilImg: img }, (err, info) => {
     if (err) console.error(err);
     return info;
   });
-  if (res) {
+  if (isOk) {
     res.status.send(id);
   } else {
     res.status(501).send("error en la base de datos");
