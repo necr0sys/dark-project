@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const UserSchema = require('../models/user');
 
 const mongoDB = process.env.URI_DB;
-mongoose.connect(mongoDB, { useFindAndModify: false });
+mongoose.connect(mongoDB, { useFindAndModify: false, useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Error la conexion a la base de datos fallo'));
@@ -12,11 +12,10 @@ db.on('error', console.error.bind(console, 'Error la conexion a la base de datos
 app.post('*', async (req, res) => {
   const { id, img } = req.body;
   const isOk = await UserSchema.findByIdAndUpdate(id, { perfilImg: img });
-  console.log(isOk);
   if (isOk) {
     res.status.send(id);
   } else {
-    res.status(501).send(id, img);
+    res.status(501).send(id);
   }
 });
 

@@ -30,6 +30,7 @@ class BodyPostRegister extends Component {
     e.preventDefault();
     const { imgSrc } = this.state;
     const reqId = this.props.id;
+    console.log(id);
     const data = {
       img: imgSrc,
       id: reqId,
