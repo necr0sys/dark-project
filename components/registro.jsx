@@ -284,7 +284,7 @@ class Registro extends Component {
                 this.setState({ spinner: false, success: true, successText: `${resp} agregado con exito` });
                 setTimeout(() => {
                   this.setState({ pseudo: true, success: false, successText: '' });
-                  window.location="/login";
+                  window.location="/postregister";
                 }, 3000);
               });
           } else {

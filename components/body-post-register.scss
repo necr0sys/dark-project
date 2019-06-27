@@ -1,0 +1,112 @@
+@import '../layout/variables';
+//@import '../layout/functions';
+@import '../layout/mixins';
+
+.post_register_main_cont{
+  width: 90vw;
+  margin: 25vh auto 0;
+  border: 1px solid $sec;
+  .header_postr{
+    margin: 0;
+    padding: 0;
+    padding: .5rem;
+    .steps_cont{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: .5rem;
+      svg{
+        line{
+          stroke:  #c3c3c3;;
+          stroke-width: 3px;
+        }
+      }
+      p{
+        margin: 0;
+        padding: 0;
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        display: flex;
+        border: 2px solid #c3c3c3;
+        color: #c3c3c3;
+        justify-content: center;
+        align-items: center;
+      }
+      .step_active{
+        border-color: $prim;
+        color: $prim;
+      }
+    }
+  }
+  form{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    button{
+      align-self: flex-end;
+      @include btn_small_secondary;
+    }
+  }
+}
+
+.body_postr{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+input[type=file]{
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+label[for=perfilImg]{
+  position: relative;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background-color: $prim;
+  display:block;
+  transition: all .5s;
+  cursor: pointer;
+  padding: 5px !important;
+  width: fit-content;
+  text-align: center;
+  img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+  }
+  .imgPerfil{
+    height: 260px;
+    width: 210px;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background: black;
+  }
+}
+
+.image_box{
+  height: 250px;
+  width: 200px;
+  background:  transparent;
+  border: dashed 15px $gray1;
+  padding: .5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

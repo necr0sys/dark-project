@@ -113,6 +113,18 @@
   }
 }
 
+@mixin btn_small_secondary {
+  border-color: $prim;
+  font-size: .8rem;
+  color: $prim;
+  margin: 0;
+  outline: none;
+  &:hover{
+    background: $prim;
+    color: #fff;
+  }
+}
+
 @mixin line($color, $width, $line_width) {
   border: $line_width solid $color;
   width: $width;

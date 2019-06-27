@@ -77,27 +77,24 @@ app
   .prepare()
   .then(() => {
     const server = express();
-    server.use(bodyParser.json());
-    server.use(bodyParser.urlencoded({ extended: false }));
+    server.use(bodyParser.json({ limit: "16mb", extended: true }));
+    server.use(bodyParser.urlencoded({ limit: "16mb", extended: true }));
 
     const mongoDB = process.env.URI_DB;
-    mongoose.connect(mongoDB);
+    mongoose.connect(mongoDB, { useFindAndModify: false });
     mongoose.Promise = global.Promise;
     const db = mongoose.connection;
     db.on('error', console.error.bind(console, 'Error la conexion a la base de datos fallo'));
 
-    server.post('/bar', async (req, res) => {
-      const reqId = req.body.id;
-      const user = await UserSchema.findById(reqId);
-      res.status(200).send(user);
+    server.post('/foo', (req, res) => {
+      const id = '5d12c8f8c2e0767a295b2abd';
+      const { img } = req.body;
+      UserSchema.findByIdAndUpdate(id, { perfilImg: img }, (err, info) => {
+        if (err) console.error(err);
+        console.log(info);
+      });
+      res.status(200).send(img);
     })
-
-    server.get('/foo/:id',(req, res) => {
-      console.log('res');
-      name = req.params.id;
-      console.log("name");
-      res.status(200).send("name");
-    });
     server.post('/api/registro', (req, res) => {
       const data = req.body;
       const checkMail = users.find((user) => {
