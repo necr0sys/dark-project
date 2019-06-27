@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const UserSchema = require('../models/user');
 
 const mongoDB = process.env.URI_DB;
-mongoose.connect(mongoDB, { useFindAndModify: false, useNewUrlParser: true });
+mongoose.connect(mongoDB, { useFindAndModify: false });
 mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Error la conexion a la base de datos fallo'));
