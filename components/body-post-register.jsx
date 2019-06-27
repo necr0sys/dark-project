@@ -13,6 +13,10 @@ class BodyPostRegister extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    console.log(this.props.id);
+  }
+
   onChange(e) {
     const img = e.target.files[0];
     const reader = new FileReader();
@@ -30,7 +34,6 @@ class BodyPostRegister extends Component {
     e.preventDefault();
     const { imgSrc } = this.state;
     const reqId = this.props.id;
-    console.log(id);
     const data = {
       img: imgSrc,
       id: reqId,
