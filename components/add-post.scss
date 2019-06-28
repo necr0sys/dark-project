@@ -1,0 +1,27 @@
+@import '../layout/variables';
+@import '../layout/functions';
+@import '../layout/mixins';
+
+.add_post_cont{
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: 15vh;
+  button{
+    @include btn_small_secondary;
+  }
+  .card_title{
+    background: $prim !important;
+    color: #fff;
+    padding: .3rem;
+    display: flex;
+  }
+  .form_post_footer{
+    text-align: right;
+  }
+  .text_post{
+    &:focus{
+      border-color: $prim;
+      box-shadow: rgba(102, 159, 9, 0.5) 0px 0px 0px 0.2rem;
+    }
+  }
+}

@@ -11,7 +11,7 @@ const App = (props) => (
       <meta charSet="utf-8" />
     </Head>
     <Layout>
-      <Perfil usr={props.usr} />
+      <Perfil user={props.user} />
     </Layout>
   </div>
 );

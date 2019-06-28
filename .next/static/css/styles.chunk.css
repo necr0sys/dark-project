@@ -14052,14 +14052,14 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-ul {
+.popOver_nav {
   list-style: none;
   padding: 0;
   margin: 0; }
-  ul li {
+  .popOver_nav li {
     width: 100%;
     display: inline-block; }
-  ul a {
+  .popOver_nav a {
     text-align: center;
     color: #669f09;
     text-decoration: none;
@@ -14067,11 +14067,11 @@ ul {
     border-radius: 2px;
     display: block;
     width: 100%; }
-    ul a:hover {
+    .popOver_nav a:hover {
       text-decoration: none;
       background: #669f09;
       color: #fff; }
-  ul button {
+  .popOver_nav button {
     text-align: center;
     color: #669f09;
     font-size: 11px;
@@ -14081,7 +14081,7 @@ ul {
     border-style: solid;
     outline: none;
     border: none; }
-    ul button:hover {
+    .popOver_nav button:hover {
       text-decoration: none;
       background: #669f09;
       color: #fff; }
@@ -21208,212 +21208,159 @@ a {
     margin: 0 .5rem;
     color: #fff; }
 
-.post_register_main_cont {
-  width: 90vw;
-  margin: 25vh auto 0;
-  border: 1px solid #8bb940; }
-  .post_register_main_cont .header_postr {
-    margin: 0;
-    padding: 0;
-    padding: .5rem; }
-    .post_register_main_cont .header_postr .steps_cont {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: .5rem; }
-      .post_register_main_cont .header_postr .steps_cont svg line {
-        stroke: #c3c3c3;
-        stroke-width: 3px; }
-      .post_register_main_cont .header_postr .steps_cont p {
-        margin: 0;
-        padding: 0;
-        height: 30px;
-        width: 30px;
-        border-radius: 50%;
-        display: flex;
-        border: 2px solid #c3c3c3;
-        color: #c3c3c3;
-        justify-content: center;
-        align-items: center; }
-      .post_register_main_cont .header_postr .steps_cont .step_active {
-        border-color: #669f09;
-        color: #669f09; }
-  .post_register_main_cont form {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }
-    .post_register_main_cont form button {
-      align-self: flex-end;
-      border-color: #669f09;
-      font-size: .8rem;
-      color: #669f09;
-      margin: 0;
-      outline: none; }
-      .post_register_main_cont form button:hover {
-        background: #669f09;
-        color: #fff; }
+html {
+  scroll-behavior: smooth; }
 
-.body_postr {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem; }
+body {
+  font-family: "Open Sans";
+  font-size: 16px; }
 
-input[type=file] {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Sansita"; }
 
-label[for=perfilImg] {
-  position: relative;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  background-color: #669f09;
-  display: block;
-  transition: all .5s;
-  cursor: pointer;
-  padding: 5px !important;
-  width: fit-content;
-  text-align: center; }
-  label[for=perfilImg] img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: block; }
-  label[for=perfilImg] .imgPerfil {
-    height: 260px;
-    width: 210px;
-    top: 0;
-    left: 0;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-    background: black; }
+a {
+  color: #8bb940;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline;
+    color: #8bb940; }
+  a:visited {
+    color: #f9e453; }
 
-.image_box {
-  height: 250px;
-  width: 200px;
-  background: transparent;
-  border: dashed 15px #ffffff80;
-  padding: .5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+.body {
+  height: 2000px; }
 
-.login_main_cont {
+.perfil_main_cont {
+  height: 100vh;
+  margin: 0 auto;
+  width: 95%;
+  margin-top: 12vh; }
+
+html {
+  scroll-behavior: smooth; }
+
+body {
+  font-family: "Open Sans";
+  font-size: 16px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Sansita"; }
+
+a {
+  color: #8bb940;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline;
+    color: #8bb940; }
+  a:visited {
+    color: #f9e453; }
+
+.header_perfil_cont {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; }
-  .login_main_cont .form_cont {
-    border: 1px solid #669f09;
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    align-items: center; }
-  .login_main_cont .form_login {
-    text-align: center;
-    padding-bottom: 1rem; }
-  .login_main_cont .input_cont {
-    border: 0.5px solid #8bb940;
-    margin: 1.5rem 0;
-    padding: .5rem 0 0;
-    position: relative;
-    border-bottom: 3px solid #669f09; }
-    .login_main_cont .input_cont label {
-      top: -.5rem;
-      left: .5rem;
-      background: #fff;
-      color: #669f09;
-      padding: 0 0.3rem;
-      font-size: 11px;
-      display: block;
-      margin: 0;
-      position: absolute; }
-    .login_main_cont .input_cont input {
-      padding: 0 .5rem;
-      border: none;
-      margin: 0;
-      width: 95%;
-      outline: none; }
-  .login_main_cont button {
-    border-color: #fff;
-    font-size: .8rem;
-    color: #fff;
-    margin: 0;
-    outline: none;
-    background: #669f09;
-    align-self: flex-end; }
-    .login_main_cont button:hover {
-      background: #669f09; }
-    .login_main_cont button:hover {
-      background: #8bb940; }
-
-.popMsg p {
-  height: 100%;
-  padding: 0;
-  margin: .5rem;
-  font-size: 11px;
-  color: #ff6c1a; }
-
-.msg_request_cont {
-  color: #ff6c1a;
-  fill: #ff6c1a;
-  text-align: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; }
-  .msg_request_cont svg {
-    width: 100px; }
-  .msg_request_cont p {
-    text-align: center;
-    padding: .5rem; }
-
-.lds-ring {
-  display: inline-block;
+  height: 70vh;
   position: relative;
-  width: 64px;
-  height: 64px; }
+  border: 1px solid #669f09; }
+  .header_perfil_cont .greeting {
+    color: #fff;
+    width: 80%;
+    text-transform: capitalize;
+    margin-top: auto;
+    align-self: center; }
+    .header_perfil_cont .greeting p {
+      width: 70%;
+      margin: 0;
+      padding-bottom: 1%; }
+    .header_perfil_cont .greeting .line {
+      border: 2px solid #fff;
+      width: 7%;
+      margin: 0;
+      padding: 0; }
 
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
+.perfil_header_footer {
+  background: url("/static/bg-header-footer-perfil.svg") top center no-repeat;
+  background-size: cover;
+  height: 25%;
+  width: 100%;
+  margin-top: auto;
+  align-self: flex-end; }
+
+.perfil_user_cont {
+  width: 35vw;
+  height: 80vh;
   position: absolute;
-  width: 51px;
-  height: 51px;
-  margin: 6px;
-  border: 6px solid #669f09;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #669f09 transparent transparent transparent; }
+  right: -1%;
+  top: 5%;
+  box-shadow: 5px 5px 15px #000;
+  border: 3px solid #fff; }
 
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s; }
+.user_img {
+  width: 100%; }
 
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s; }
+.user_name {
+  background: #fff;
+  color: #669f09;
+  margin: 0;
+  text-transform: capitalize;
+  font-weight: 700;
+  padding: .5rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%; }
 
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s; }
+.add_post_cont {
+  width: 80vw;
+  margin: 0 auto;
+  margin-top: 15vh; }
+  .add_post_cont button {
+    border-color: #669f09;
+    font-size: .8rem;
+    color: #669f09;
+    margin: 0;
+    outline: none; }
+    .add_post_cont button:hover {
+      background: #669f09;
+      color: #fff; }
+  .add_post_cont .card_title {
+    background: #669f09 !important;
+    color: #fff;
+    padding: .3rem;
+    display: flex; }
+  .add_post_cont .form_post_footer {
+    text-align: right; }
+  .add_post_cont .text_post:focus {
+    border-color: #669f09;
+    box-shadow: rgba(102, 159, 9, 0.5) 0px 0px 0px 0.2rem; }
 
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
+.nav-link:hover {
+  color: #669f09 !important;
+  cursor: pointer; }
+
+.line {
+  border: 5px solid #669f09;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  width: 80vw;
+  margin: 0 auto; }
+
+.line_br {
+  border: 0.3px solid #8bb940;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  margin: 1rem 0;
+  width: 80vw;
+  margin: 0 auto; }
+
+.post_cont {
+  margin: 1rem auto;
+  width: 80vw; }
+
+.card_body {
+  padding-top: 0; }
 
 
 /*# sourceMappingURL=styles.chunk.css.map*/

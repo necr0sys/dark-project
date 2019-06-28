@@ -22,7 +22,7 @@ class PopOver extends Component {
     return(
       <Popover placement="bottom" target="btn-resp" toggle={this.toggle} isOpen={this.props.popOpen}>
         <PopoverBody>
-          <ul>
+          <ul className="popOver_nav">
             <li>
               <Link href="/editar/perfil">
                 <a>Editar</a>
