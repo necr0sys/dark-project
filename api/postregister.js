@@ -1,6 +1,6 @@
 const app = require('./util/app');
-const mongooseConnect = require('./api/util/mongoose');
-const UserSchema = require('./models/user');
+const mongooseConnect = require('./util/mongoose');
+const UserSchema = require('../models/user');
 
 [...mongooseConnect];
 
