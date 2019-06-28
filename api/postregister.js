@@ -1,7 +1,8 @@
 const app = require('./util/app');
-const mongoose = require('./util/mongoose');
+const mongooseConnect = require('./api/util/mongoose');
+const UserSchema = require('./models/user');
 
-[...mongoose];
+[...mongooseConnect];
 
 app.post('*', async (req, res) => {
   const { id, img } = req.body;
