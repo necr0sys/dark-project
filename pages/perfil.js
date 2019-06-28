@@ -26,8 +26,8 @@ App.getInitialProps = async ({ query }) => {
     method: "POST",
     body: JSON.stringify(data),
   });
-  const usr = await res.json();
-  return { usr };
+  const user = await res.json();
+  return { user };
 };
 
 export default App;
