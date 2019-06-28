@@ -279,12 +279,12 @@ class Registro extends Component {
       })
         .then(res => {
           if (res.status === 200) {
-            res.text()
+            res.json()
               .then(resp => {
-                this.setState({ spinner: false, success: true, successText: `${resp} agregado con exito` });
+                this.setState({ spinner: false, success: true, successText: `${resp.mail} agregado con exito` });
                 setTimeout(() => {
                   this.setState({ pseudo: true, success: false, successText: '' });
-                  window.location="/postregister";
+                  window.location=`/postregister?id=${resp.id}`;
                 }, 3000);
               });
           } else {

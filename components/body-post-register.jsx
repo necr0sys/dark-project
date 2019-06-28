@@ -81,7 +81,6 @@ class BodyPostRegister extends Component {
             <p>Elige una imagen de perfil</p>
           </div>
               <input onChange={this.onChange} id="perfilImg" name="perfilImg" type="file"/>
-              {console.log(typeof this.state.imgSrc)}
           </label>
             <Button type="submit" outline>Siguiente</Button>
           </form>

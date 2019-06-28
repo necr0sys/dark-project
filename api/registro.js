@@ -25,12 +25,16 @@ db.on('error', console.error.bind(console, 'Error la conexion a la base de datos
 app.post('*', async (req, res) => {
   const user = req.body;
   const newUser = UserSchema(user);
-  const isRegistred = await UserSchema.find({ mail: user.mail });
-  if (isRegistred[0]) {
+  const isRegistred = await UserSchema.findOne({ mail: user.mail });
+  if (isRegistred) {
     res.status(501).send(user.mail);
   } else {
-    newUser.save();
-    res.status(200).send(user.mail);
+    const userDone = await newUser.save();
+    const data = {
+      mail: userDone.mail,
+      id: userDone.id
+    };
+    res.status(200).json(data);
   }
 });
 
