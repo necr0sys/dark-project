@@ -30,8 +30,9 @@ class PerfilNav extends Component {
   }
 
   componentDidMount() {
-    const bdPosts = this.props.posts;
-    this.setState({ posts: [bdPosts] });
+    const { posts } = this.props.user;
+    this.setState({ posts: posts });
+    console.log(this.props)
   }
 
   onToggle(tab) {
@@ -49,7 +50,7 @@ class PerfilNav extends Component {
     e.preventDefault()
     const date = new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'numeric', day:'numeric' });
     const { text, posts } = this.state;
-    const { id } = this.props;
+    const { id } = this.props.user;
     const newPost = { text, date };
     const data = {
       id: id,
