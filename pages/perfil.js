@@ -12,7 +12,6 @@ const App = (props) => (
     </Head>
     <Layout>
       <Perfil user={props.user} id={props.id} />
-      {console.log(props.user)}
     </Layout>
   </div>
 );

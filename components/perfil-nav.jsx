@@ -33,7 +33,7 @@ class PerfilNav extends Component {
     const { posts, id } = this.props;
     this.setState({ posts: posts });
     console.log(posts);
-    console.log(id);
+    console.log(`perfil-nav ${id}`);
   }
 
   onToggle(tab) {
@@ -51,7 +51,7 @@ class PerfilNav extends Component {
     e.preventDefault()
     const date = new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'numeric', day:'numeric' });
     const { text, posts } = this.state;
-    const { id } = this.props.user;
+    const { id } = this.props;
     const newPost = { text, date };
     const data = {
       id: id,
