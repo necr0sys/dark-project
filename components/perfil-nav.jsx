@@ -30,9 +30,10 @@ class PerfilNav extends Component {
   }
 
   componentDidMount() {
-    const { posts } = this.props.user;
+    const { posts } = this.props;
     this.setState({ posts: posts });
-    console.log(this.props)
+    console.log(posts);
+    console.log(this.props.id);
   }
 
   onToggle(tab) {
@@ -57,6 +58,7 @@ class PerfilNav extends Component {
       text: text,
       date: date
     }
+    console.log(data);
     fetch('/api/newPost.js', {
       headers: { "Content-Type": "application/json" },
       method: "POST",
