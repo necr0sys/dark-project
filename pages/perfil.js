@@ -11,7 +11,8 @@ const App = (props) => (
       <meta charSet="utf-8" />
     </Head>
     <Layout>
-      <Perfil user={props.user} />
+      <Perfil user={props.user} id={props.id} />
+      {console.log(props.user)}
     </Layout>
   </div>
 );
@@ -27,7 +28,7 @@ App.getInitialProps = async ({ query }) => {
     body: JSON.stringify(data),
   });
   const user = await res.json();
-  return { user };
+  return { user, id };
 };
 
 export default App;

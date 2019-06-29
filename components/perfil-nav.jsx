@@ -30,10 +30,10 @@ class PerfilNav extends Component {
   }
 
   componentDidMount() {
-    const { posts } = this.props;
+    const { posts, id } = this.props;
     this.setState({ posts: posts });
     console.log(posts);
-    console.log(this.props.id);
+    console.log(id);
   }
 
   onToggle(tab) {

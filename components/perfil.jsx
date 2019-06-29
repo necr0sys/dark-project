@@ -28,12 +28,12 @@ class Login extends Component {
   }
 
   render() {
-    const { user } = this.props;
+    const { user, id } = this.props;
     return(
       <Layout>
         <div className="perfil_main_cont">
           <PerfilHeader user={user} />
-          <PerfilNav id={user.id} posts={user.posts} />
+          <PerfilNav id={id} posts={user.posts} />
         </div>
       </Layout>
     );
