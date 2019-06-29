@@ -8,7 +8,7 @@ import {
 } from 'reactstrap';
 import './add-post.scss';
 
-const AddPost = ({ text, onClick, onChange }) => (
+const AddPost = ({ text, onSubmit, onChange }) => (
   <div className="add_post_cont shadow">
     <Card>
       <CardBody className="card_title">
@@ -17,12 +17,12 @@ const AddPost = ({ text, onClick, onChange }) => (
         </div>
       </CardBody>
       <CardBody>
-        <form method="POST" className="add_post_form">
+        <form onSubmit={onSubmit} method="POST" className="add_post_form">
           <FormGroup>
             <Input onChange={onChange} value={text} className="text_post" type="textarea" />
           </FormGroup>
           <div className="form_post_footer">
-            <Button onClick={onClick} type="button" outline>Crear</Button>
+            <Button type="submit" outline>Crear</Button>
           </div>
         </form>
       </CardBody>

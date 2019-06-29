@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid/v1';
+import fetch from 'isomorphic-unfetch';
 import {
   TabContent,
   TabPane,
@@ -30,8 +31,7 @@ class PerfilNav extends Component {
 
   componentDidMount() {
     const bdPosts = this.props.posts;
-    const posts = this.state;
-    this.setState({ posts: [...posts, bdPosts] });
+    this.setState({ posts: [bdPosts] });
   }
 
   onToggle(tab) {
@@ -46,6 +46,7 @@ class PerfilNav extends Component {
   }
 
   addPost(e) {
+    e.preventDefault()
     const date = new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'numeric', day:'numeric' });
     const { text, posts } = this.state;
     const { id } = this.props;
@@ -55,14 +56,14 @@ class PerfilNav extends Component {
       text: text,
       date: date
     }
-    const options = {
-      headers: { 'Content-Type': 'application/json' },
-      method: 'POST',
+    fetch('/api/newPost.js', {
+      headers: { "Content-Type": "application/json" },
+      method: "POST",
+      mode: "cors",
       body: JSON.stringify(data),
-    };
-    fetch('/api/addPost', options)
+    })
       .then((res) => {
-        if(res.ok) {
+        if(res.status === 200) {
           this.setState({ posts: [...posts, newPost] });
         }
       })
@@ -119,7 +120,7 @@ class PerfilNav extends Component {
                 <AddPost
                   value={text}
                   onChange={this.onChangeText}
-                  onClick={this.addPost} 
+                  onSubmit={this.addPost}
                 />
                 <div className="line" />
               </Col>
