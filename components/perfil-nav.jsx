@@ -93,8 +93,8 @@ class PerfilNav extends Component {
       body: JSON.stringify(data),
     })
       .then((res) => {
-        if(res.ok) {
-          this.setState({ history: '', imgUrl: null, posts: [...posts, newPost] });
+        if (res.ok) {
+          this.setState({ history: '', imgUrl: null, posts: [...this.state.posts, newPost] });
           res.text().then(res=>console.log(res));
         }
       })
@@ -170,6 +170,7 @@ class PerfilNav extends Component {
             </Row>
           </TabPane>
           <TabPane tabId='2'>
+          {console.log(posts)}
             <Row>
               <Col sm="12">
                 <h2>Tab 2</h2>

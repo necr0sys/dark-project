@@ -8,7 +8,7 @@ import {
 } from 'reactstrap';
 import './add-post.scss';
 
-const AddPost = ({ history, onSubmit, onChangeText, onChangeImg, img }) => (
+const AddPost = ({ value, onSubmit, onChangeText, onChangeImg, img }) => (
   <div className="add_post_cont shadow">
     <Card>
       <CardBody className="card_title">
@@ -24,7 +24,7 @@ const AddPost = ({ history, onSubmit, onChangeText, onChangeImg, img }) => (
               : {display:'none'}
           } />
           <FormGroup>
-            <Input onChange={onChangeText} value={history} className="text_post" type="textarea" />
+            <Input onChange={onChangeText} value={vlue} className="text_post" type="textarea" />
           </FormGroup>
           <div className="form_post_footer">
             <Button type="submit" outline>Crear</Button>
