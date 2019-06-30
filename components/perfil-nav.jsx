@@ -76,7 +76,6 @@ class PerfilNav extends Component {
       imgUrl,
       history,
     };
-    this.setState({ history: '', imgUrl: null, posts: [...posts, newPost] });
     const data = {
       id: id,
       author: newPost.author,
@@ -93,6 +92,8 @@ class PerfilNav extends Component {
     })
       .then((res) => {
         if (res.ok) {
+          this.setState({ posts: [...posts, newPost] });
+          this.setState({ history: '', imgUrl: null });
           res.text().then(res=>console.log(res));
         }
       })
