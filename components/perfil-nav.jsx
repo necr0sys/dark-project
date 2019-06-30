@@ -10,8 +10,6 @@ import {
   NavLink,
   Row,
   Col,
-  Card,
-  CardBody,
 } from 'reactstrap';
 import classnames from 'classnames';
 import AddPost from './add-post';
@@ -33,7 +31,7 @@ class PerfilNav extends Component {
   }
 
   componentDidMount() {
-    const { posts } = this.props;
+    const { posts, user } = this.props;
     this.setState({ posts: posts });
   }
 
@@ -83,9 +81,6 @@ class PerfilNav extends Component {
       imgUrl: newPost.imgUrl,
       history: newPost.history,
     }
-    console.log(`newPost ${newPost}`);
-    console.log(`data  ${data}`);
-    console.log(`antes del fetch ${posts}`)
     fetch('/api/newPost.js', {
       headers: { "Content-Type": "application/json" },
       method: "POST",
@@ -95,7 +90,6 @@ class PerfilNav extends Component {
         if (res.ok) {
           this.setState({ history: '', imgUrl: null, posts: [...posts, newPost] });
           res.text().then(res=>console.log(res));
-          console.log(`despues de recibir la respuesta ${posts}`)
         }
       })
       .catch(err => console.log(err));
@@ -107,11 +101,10 @@ class PerfilNav extends Component {
       activeTab,
       history,
       imgUrl,
-      posts,
+      posts
     } = this.state;
     return (
       <div>
-        {console.log(`render antes de pasar por card ${posts}`)}
         <Nav tabs>
           <NavItem>
             <NavLink
