@@ -94,7 +94,7 @@ class PerfilNav extends Component {
     })
       .then((res) => {
         if (res.ok) {
-          this.setState({ history: '', imgUrl: null, posts: [...this.state.posts, newPost] });
+          this.setState({ history: '', imgUrl: null, posts: [] });
           res.text().then(res=>console.log(res));
         }
       })
