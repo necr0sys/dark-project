@@ -5,7 +5,8 @@ const UserSchema = require('../models/user');
 [...mongooseConnect];
 
 app.post('*', async (req, res) => {
-  const { id, newPost } = req.body;
+  const id = req.body.id;
+  const newPost = req.body.newPost;
   const resp = await UserSchema.findByIdAndUpdate(id, { $push: { posts: newPost } });
   if (resp) {
     res.status(200).json(newPost);
