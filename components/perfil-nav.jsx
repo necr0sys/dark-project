@@ -79,10 +79,11 @@ class PerfilNav extends Component {
       history,
     };
     const data = {
-      id: id,
-      post: newPost,
+      id,
+      newPost,
     }
     console.log(newPost);
+    console.log(data);
     fetch('/api/newPost.js', {
       headers: { "Content-Type": "application/json" },
       method: "POST",
@@ -90,7 +91,9 @@ class PerfilNav extends Component {
     })
       .then((res) => {
         if(res.status === 200) {
-          this.setState({ history: '', imgUrl: null, posts: [...posts, newPost] });
+          //this.setState({ history: '', imgUrl: null, posts: [...posts, newPost] });
+          res.json()
+            .then(res=> console.log(res));
         }
       })
       .catch(err => console.log(err));

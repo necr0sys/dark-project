@@ -5,11 +5,11 @@ const UserSchema = require('../models/user');
 [...mongooseConnect];
 
 app.post('*', async (req, res) => {
-  const reqId = req.body.id;
   const newPost = req.body.newPost;
-  const resp = await UserSchema.findByIdAndUpdate(reqId, { $push: { posts: newPost } });
+  const { id, newPost } = req.body;
+  const resp = await UserSchema.findByIdAndUpdate(id, { $push: { posts: newPost } });
   if (resp) {
-    res.status(200).send();
+    res.status(200).json(newPost);
   } else {
     res.status(501).send();
   }
