@@ -47,7 +47,7 @@ class Login extends Component {
       <Layout>
         <div className="perfil_main_cont">
           <PerfilHeader user={user} />
-          <PerfilNav id={id} posts={user.posts} />
+          <PerfilNav user={user} id={id} posts={user.posts} />
         </div>
       </Layout>
     );

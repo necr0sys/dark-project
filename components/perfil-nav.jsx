@@ -22,7 +22,7 @@ class PerfilNav extends Component {
     super(props);
     this.state = {
       activeTab: '1',
-      text: '',
+      history: '',
       imgUrl: null,
       posts:[],
     };
@@ -46,7 +46,7 @@ class PerfilNav extends Component {
   }
 
   onChangeText(e) {
-    this.setState({ text: e.target.value });
+    this.setState({ history: e.target.value });
   }
   onChangeImg(e) {
     console.log('foo')
@@ -65,14 +65,22 @@ class PerfilNav extends Component {
   addPost(e) {
     e.preventDefault()
     const date = new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'numeric', day:'numeric' });
-    const { text, posts, imgUrl } = this.state;
-    const { id } = this.props;
-    const newPost = { text, date, imgUrl };
+    const { history, posts, imgUrl } = this.state;
+    const { id, user } = this.props;
+    authorName = `${user.name} ${user.lastName}`;
+    authorImg = author.perfilImg;
+    const newPost = {
+      author: {
+        img: authorImg,
+        name:authorName,
+      },
+      date,
+      imgUrl,
+      history,
+    };
     const data = {
       id: id,
-      text: text,
-      date: date,
-      img: imgUrl ? imgUrl : '',
+      post: newPost,
     }
     fetch('/api/newPost.js', {
       headers: { "Content-Type": "application/json" },
@@ -81,7 +89,7 @@ class PerfilNav extends Component {
     })
       .then((res) => {
         if(res.status === 200) {
-          this.setState({ text: '', imgUrl: null, posts: [...posts, newPost] });
+          this.setState({ history: '', imgUrl: null, posts: [...posts, newPost] });
         }
       })
       .catch(err => console.log(err));
@@ -91,7 +99,7 @@ class PerfilNav extends Component {
   render() {
     const {
       activeTab,
-      text,
+      history,
       imgUrl,
     } = this.state;
     const { posts } = this.props;
@@ -136,7 +144,7 @@ class PerfilNav extends Component {
             <Row>
               <Col sm="12">
                 <AddPost
-                  value={text}
+                  value={history}
                   onChangeText={this.onChangeText}
                   img={imgUrl}
                   onChangeImg={this.onChangeImg}
