@@ -10,6 +10,8 @@ import {
   NavLink,
   Row,
   Col,
+  Card,
+  CardBody,
 } from 'reactstrap';
 import classnames from 'classnames';
 import AddPost from './add-post';
@@ -33,6 +35,8 @@ class PerfilNav extends Component {
   componentDidMount() {
     const { posts, user } = this.props;
     this.setState({ posts: posts });
+    console.log(posts);
+    console.log(user);
   }
 
   onToggle(tab) {
@@ -81,15 +85,17 @@ class PerfilNav extends Component {
       imgUrl: newPost.imgUrl,
       history: newPost.history,
     }
+    console.log(newPost);
+    console.log(data);
     fetch('/api/newPost.js', {
       headers: { "Content-Type": "application/json" },
       method: "POST",
       body: JSON.stringify(data),
     })
       .then((res) => {
-        if (res.ok) {
+        if(res.status === 200) {
           this.setState({ history: '', imgUrl: null, posts: [...posts, newPost] });
-          res.text().then(res=>console.log(res));
+          res.text().then(res=>(res));
         }
       })
       .catch(err => console.log(err));
