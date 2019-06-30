@@ -101,8 +101,8 @@ class PerfilNav extends Component {
       activeTab,
       history,
       imgUrl,
-      posts
     } = this.state;
+    const { posts } = this.props;
     return (
       <div>
         <Nav tabs>
