@@ -171,7 +171,6 @@ class PerfilNav extends Component {
             </Row>
           </TabPane>
           <TabPane tabId='2'>
-          {console.log(`despues de card ${post}s`)}
             <Row>
               <Col sm="12">
                 <h2>Tab 2</h2>
