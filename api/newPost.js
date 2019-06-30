@@ -16,12 +16,12 @@ app.post('*', async (req, res) => {
     imgUrl:  reqImg,
     history: reqhistory,
   };
-  
+
   const resp = await UserSchema.findByIdAndUpdate(reqId, { $push: { posts: newPost } });
   if (resp) {
-    res.status(200).send();
+    res.status(200).send("todo bien");
   } else {
-    res.status(501).send();
+    res.status(501).send("todo mal");
   }
 });
 
