@@ -79,8 +79,8 @@ class PerfilNav extends Component {
       history,
     };
     const data = {
-      id,
-      newPost,
+      id: id,
+      newPost: newPost,
     }
     console.log(newPost);
     console.log(data);
