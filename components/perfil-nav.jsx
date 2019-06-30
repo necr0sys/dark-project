@@ -93,9 +93,9 @@ class PerfilNav extends Component {
       body: JSON.stringify(data),
     })
       .then((res) => {
-        if(res.status === 200) {
-          this.setState({ history: '', imgUrl: null, posts: [...posts, newPost] });
-          res.text().then(res=>(res));
+        if (res.ok) {
+          this.setState({ history: '', imgUrl: null, posts: [...this.state.posts, newPost] });
+          res.text().then(res=>console.log(res));
         }
       })
       .catch(err => console.log(err));
@@ -107,8 +107,8 @@ class PerfilNav extends Component {
       activeTab,
       history,
       imgUrl,
+      posts
     } = this.state;
-    const { posts } = this.props;
     return (
       <div>
         <Nav tabs>
