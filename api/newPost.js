@@ -7,7 +7,7 @@ const UserSchema = require('../models/user');
 app.post('*', async (req, res) => {
   const reqId = req.body.id;
   const newPost = req.body.newPost;
-  const resp = await UserSchema.findByIdAndUpdate(reqId, { $push: { posts: newPost, $position: 0 } });
+  const resp = await UserSchema.findByIdAndUpdate(reqId, { $push: { posts: { $each: [newPost], $position: 0 } } });
   if (resp) {
     res.status(200).send();
   } else {
