@@ -35,6 +35,7 @@ class PerfilNav extends Component {
   componentDidMount() {
     const { posts } = this.props;
     this.setState({ posts: posts });
+    console.log(`componentDidMount ${posts}`)
   }
 
   onToggle(tab) {
@@ -83,8 +84,9 @@ class PerfilNav extends Component {
       imgUrl: newPost.imgUrl,
       history: newPost.history,
     }
-    console.log(newPost);
-    console.log(data);
+    console.log(`newPost ${newPost}`);
+    console.log(`data  ${data}`);
+    console.log(`antes del fetch ${posts}`)
     fetch('/api/newPost.js', {
       headers: { "Content-Type": "application/json" },
       method: "POST",
@@ -95,6 +97,7 @@ class PerfilNav extends Component {
           this.setState({ posts: [...posts, newPost] });
           this.setState({ history: '', imgUrl: null });
           res.text().then(res=>console.log(res));
+          console.log(`despues de recibir la respuesta ${posts}`)
         }
       })
       .catch(err => console.log(err));
@@ -110,6 +113,7 @@ class PerfilNav extends Component {
     const { posts } = this.props;
     return (
       <div>
+        {console.log(`render antes de pasar por card ${posts}`)}
         <Nav tabs>
           <NavItem>
             <NavLink
@@ -169,7 +173,7 @@ class PerfilNav extends Component {
             </Row>
           </TabPane>
           <TabPane tabId='2'>
-          {console.log(posts)}
+          {console.log(`despues de card ${post}s`)}
             <Row>
               <Col sm="12">
                 <h2>Tab 2</h2>
