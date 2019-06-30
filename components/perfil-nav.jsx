@@ -68,7 +68,7 @@ class PerfilNav extends Component {
     const { history, posts, imgUrl } = this.state;
     const { id, user } = this.props;
     const authorName = `${user.name} ${user.lastName}`;
-    authorImg = author.perfilImg;
+    const authorImg = user.perfilImg;
     const newPost = {
       author: {
         img: authorImg,
