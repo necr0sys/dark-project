@@ -1,0 +1,77 @@
+@import '../../layout/variables';
+@import '../../layout/mixins';
+
+.card_post{
+  margin: 5vh auto;
+  width: 60%;
+  //height: 500px;
+  border: 1px solid $prim;
+  //margin-top: 5vh;
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    background: $prim;
+    padding: .8rem;
+    .post_info{
+      display: flex;
+      img{
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: .5rem;
+      }
+      p{
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+  .img{
+    width: 100%;
+    height: 400px;
+    margin: 0 auto;
+  }
+  .history{
+    padding: .8rem;
+    text-align: justify;
+  }
+  .footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $prim;
+    padding: .8rem;
+    button{
+      background: transparent;
+      padding: 0;
+      border: none;
+      transition: .5s;
+      color: #fff;
+      outline: none;
+      &:hover{
+        svg{
+          fill: $danger;
+        }
+      }
+    }
+    svg{
+      transition: .5s;
+      width: 30px;
+      height: 30px;
+      fill: #fff;
+    }
+    .social_buttons > *{
+      margin-right: .5rem;
+    }
+    .comments{
+      transition: .5s;
+      &:hover{
+        transform: rotate(-180deg);
+      }
+    }
+  }
+}

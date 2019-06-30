@@ -7,19 +7,33 @@ import './perfil.scss';
 import PerfilHeader from './perfil-header';
 import PerfilNav from './perfil-nav';
 
-/*const user = {
-  name: 'sophie',
-  lastName: 'green',
-  mail: 'queen-green@gmail.com',
-  birthday: '22/06/2019',
-  perfilImg: '/static/queengreen.jpg',
-  frontPageImg: '/static/queenfront.jpg',
-  frontPageQuote: '"crear un mundo mas limpio es nuestro deber, nuestro derecho es disfrutarlo! compartiendo... con los seres que amamos"',
-}*/
 
 class Login extends Component {
   constructor(props) {
     super(props);
+    /*this.state= {
+      user: {
+        name: 'sophie',
+        lastName: 'green',
+        mail: 'queen-green@gmail.com',
+        birthday: '22/06/2019',
+        perfilImg: '/static/queengreen.jpg',
+        frontPageImg: '/static/queenfront.jpg',
+        frontPageQuote: '"crear un mundo mas limpio es nuestro deber, nuestro derecho es disfrutarlo! compartiendo... con los seres que amamos"',
+        posts: [
+          {
+            author: {
+              name: 'Sophie Green',
+              img: '/static/queengreen.jpg',
+            },
+            date: '29/06/2019 2:00pm',
+            imgUrl: '/static/product-2-100.jpg',
+            history: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, perferendis. Deserunt mollitia incidunt magni minus tempora maiores veniam quia quasi iste molestiae impedit in distinctio, laborum similique ratione blanditiis earum.',
+            likes: 5,
+          }
+        ]
+      }
+    }*/
   }
 
   componentDidMount() {

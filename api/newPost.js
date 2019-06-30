@@ -7,12 +7,14 @@ const UserSchema = require('../models/user');
 app.post('*', async (req, res) => {
   const reqId = req.body.id;
   const reqText = req.body.text;
-  const reqDate = req.body.reqDate;
+  const reqDate = req.body.date;
+  const reqImg = req.body.img;
   const newPost = {
     text: reqText,
     date: reqDate,
+    img: reqImg,
   }
-  const resp = await UserSchema.findByIdAndUpdate(reqId, { $push: { posts: newPost } });
+  const resp = await UserSchema.findByIdAndUpdate(reqId, { $unshift: { posts: newPost } });
   if (resp) {
     res.status(200).send();
   } else {

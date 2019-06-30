@@ -10,7 +10,7 @@
 }
 .line{
   @include line($prim, 100%, 5px);
-  width: 80vw;
+  width: 60%;
   margin: 0 auto;
 }
 

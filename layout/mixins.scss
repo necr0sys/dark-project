@@ -131,3 +131,7 @@
   margin: 0;
   padding: 0;
 }
+
+@mixin test {
+  border: 1px solid red;
+}
