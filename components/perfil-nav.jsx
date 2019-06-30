@@ -35,7 +35,6 @@ class PerfilNav extends Component {
   componentDidMount() {
     const { posts } = this.props;
     this.setState({ posts: posts });
-    console.log(`componentDidMount ${posts}`)
   }
 
   onToggle(tab) {
@@ -94,8 +93,7 @@ class PerfilNav extends Component {
     })
       .then((res) => {
         if (res.ok) {
-          this.setState({ posts: [...posts, newPost] });
-          this.setState({ history: '', imgUrl: null });
+          this.setState({ history: '', imgUrl: null, posts: [...posts, newPost] });
           res.text().then(res=>console.log(res));
           console.log(`despues de recibir la respuesta ${posts}`)
         }
@@ -109,8 +107,8 @@ class PerfilNav extends Component {
       activeTab,
       history,
       imgUrl,
+      posts,
     } = this.state;
-    const { posts } = this.props;
     return (
       <div>
         {console.log(`render antes de pasar por card ${posts}`)}
