@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import uuid from 'uuid/v1';
 import fetch from 'isomorphic-unfetch';
-import CardPost from './card-post/card-post';
 import {
   TabContent,
   TabPane,
@@ -22,21 +21,19 @@ class PerfilNav extends Component {
     super(props);
     this.state = {
       activeTab: '1',
-      history: '',
-      imgUrl: null,
+      text: '',
       posts:[],
     };
     this.onToggle = this.onToggle.bind(this);
     this.onChangeText = this.onChangeText.bind(this);
-    this.onChangeImg = this.onChangeImg.bind(this);
     this.addPost = this.addPost.bind(this);
   }
 
   componentDidMount() {
-    const { posts, user } = this.props;
+    const { posts, id } = this.props;
     this.setState({ posts: posts });
     console.log(posts);
-    console.log(user);
+    console.log(`perfil-nav ${id}`);
   }
 
   onToggle(tab) {
@@ -47,45 +44,20 @@ class PerfilNav extends Component {
   }
 
   onChangeText(e) {
-    this.setState({ history: e.target.value });
-  }
-  onChangeImg(e) {
-    const img = e.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend= () => {
-      this.setState({ imgUrl: reader.result });
-    }
-    if (img) {
-      this.setState({ imgUrl: reader.readAsDataURL(img) });
-    } else {
-      this.setState({ imgUrl: null });
-    }
+    this.setState({ text: e.target.value });
   }
 
   addPost(e) {
     e.preventDefault()
     const date = new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'numeric', day:'numeric' });
-    const { history, posts, imgUrl } = this.state;
-    const { id, user } = this.props;
-    const authorName = `${user.name} ${user.lastName}`;
-    const authorImg = user.perfilImg;
-    const newPost = {
-      author: {
-        img: authorImg,
-        name:authorName,
-      },
-      date,
-      imgUrl,
-      history,
-    };
+    const { text, posts } = this.state;
+    const { id } = this.props;
+    const newPost = { text, date };
     const data = {
       id: id,
-      author: newPost.author,
-      date: newPost.date,
-      imgUrl: newPost.imgUrl,
-      history: newPost.history,
+      text: text,
+      date: date
     }
-    console.log(newPost);
     console.log(data);
     fetch('/api/newPost.js', {
       headers: { "Content-Type": "application/json" },
@@ -94,8 +66,7 @@ class PerfilNav extends Component {
     })
       .then((res) => {
         if(res.status === 200) {
-          this.setState({ history: '', imgUrl: null, posts: [...posts, newPost] });
-          res.text().then(res=>(res));
+          this.setState({ posts: [...posts, newPost] });
         }
       })
       .catch(err => console.log(err));
@@ -105,10 +76,9 @@ class PerfilNav extends Component {
   render() {
     const {
       activeTab,
-      history,
-      imgUrl,
+      text,
+      posts,
     } = this.state;
-    const { posts } = this.props;
     return (
       <div>
         <Nav tabs>
@@ -150,20 +120,26 @@ class PerfilNav extends Component {
             <Row>
               <Col sm="12">
                 <AddPost
-                  value={history}
-                  onChangeText={this.onChangeText}
-                  img={imgUrl}
-                  onChangeImg={this.onChangeImg}
+                  value={text}
+                  onChange={this.onChangeText}
                   onSubmit={this.addPost}
                 />
                 <div className="line" />
               </Col>
             </Row>
+            <div className="line_br" />
             <Row>
               {
                 posts.map((post) => (
                   <Col key={uuid()} sm="12">
-                    <CardPost post={post}  />
+                    <Card className="post_cont shadow animated fadeIn">
+                      <CardBody>
+                        {post.date}
+                      </CardBody>
+                      <CardBody className="card_body">
+                        <p>{post.text}</p>
+                      </CardBody>
+                    </Card>
                   </Col>
                 ))
               }
