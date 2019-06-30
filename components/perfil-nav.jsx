@@ -82,6 +82,7 @@ class PerfilNav extends Component {
       id: id,
       post: newPost,
     }
+    console.log(newPost);
     fetch('/api/newPost.js', {
       headers: { "Content-Type": "application/json" },
       method: "POST",
