@@ -24,7 +24,7 @@ const AddPost = ({ value, onSubmit, onChangeText, onChangeImg, img }) => (
               : {display:'none'}
           } />
           <FormGroup>
-            <Input onChange={onChangeText} value={vlue} className="text_post" type="textarea" />
+            <Input onChange={onChangeText} value={value} className="text_post" type="textarea" />
           </FormGroup>
           <div className="form_post_footer">
             <Button type="submit" outline>Crear</Button>
