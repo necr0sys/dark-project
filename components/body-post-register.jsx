@@ -72,17 +72,17 @@ class BodyPostRegister extends Component {
           </div>
         </div>
         <div className="body_postr">
-        <form onSubmit={this.onSubmit} method="POST">
-          <label htmlFor="perfilImg">
-          {
-            this.state.imgSrc && <img src={this.state.imgSrc} alt= "preview" />
-          }
-          <div className="image_box">
-            <p>Elige una imagen de perfil</p>
-          </div>
-              <input onChange={this.onChange} id="perfilImg" name="perfilImg" type="file"/>
-          </label>
-            <Button type="submit" outline>Siguiente</Button>
+          <form onSubmit={this.onSubmit} method="POST">
+            <label htmlFor="perfilImg">
+            {
+              this.state.imgSrc && <img src={this.state.imgSrc} alt= "preview" />
+            }
+            <div className="image_box">
+              <p>Elige una imagen de perfil</p>
+            </div>
+                <input onChange={this.onChange} id="perfilImg" name="perfilImg" type="file"/>
+            </label>
+              <Button type="submit" outline>Siguiente</Button>
           </form>
         </div>
         <div className="footer_postr">

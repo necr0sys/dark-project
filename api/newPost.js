@@ -14,7 +14,7 @@ app.post('*', async (req, res) => {
     date: reqDate,
     img: reqImg,
   }
-  const resp = await UserSchema.findByIdAndUpdate(reqId, { $unshift: { posts: newPost } });
+  const resp = await UserSchema.findByIdAndUpdate(reqId, { $push: { posts: newPost, $position: 0 } });
   if (resp) {
     res.status(200).send();
   } else {
