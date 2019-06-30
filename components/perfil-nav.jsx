@@ -33,9 +33,10 @@ class PerfilNav extends Component {
   }
 
   componentDidMount() {
-    const { posts } = this.props;
+    const { posts, user } = this.props;
     this.setState({ posts: posts });
     console.log(posts);
+    console.log(user);
   }
 
   onToggle(tab) {
@@ -49,7 +50,6 @@ class PerfilNav extends Component {
     this.setState({ history: e.target.value });
   }
   onChangeImg(e) {
-    console.log('foo')
     const img = e.target.files[0];
     const reader = new FileReader();
     reader.onloadend= () => {
@@ -67,7 +67,7 @@ class PerfilNav extends Component {
     const date = new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'numeric', day:'numeric' });
     const { history, posts, imgUrl } = this.state;
     const { id, user } = this.props;
-    authorName = `${user.name} ${user.lastName}`;
+    const authorName = `${user.name} ${user.lastName}`;
     authorImg = author.perfilImg;
     const newPost = {
       author: {
