@@ -57,7 +57,7 @@ class CardPost extends Component {
           style={
             imgUrl 
               ? { background: `url("${imgUrl}") top center no-repeat`, backgroundSize: "cover" }
-              : { display: none }
+              : { display: 'none' }
           }>
         </div>
         <div className="history">
