@@ -9,6 +9,10 @@ import Cleave from 'cleave.js/react';
 import Spinner from './spinner';
 import Success from './success';
 import Fail from './fail';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { onUserRegister } from '../store/actions';
+import NewUser from '../utils/new-user';
 
 const RegistroContainer = ({ children }) => (
   <div className="container_registro">
@@ -253,6 +257,7 @@ class Registro extends Component {
       birthday,
       genre,
     } = this.state
+    //const { onUserRegister } = this.props;
     if (!validateEmpty(name)) {
       this.setState({ nameAlert: true });
     } else if (!validateEmpty(lastName)) {
@@ -271,6 +276,7 @@ class Registro extends Component {
         genero: genre,
       };
       this.setState({ spinner: true, real: false });
+      setTimeout
       fetch('/api/registro',
       {
         headers: { "Content-Type": "application/json" },
@@ -415,4 +421,7 @@ class Registro extends Component {
   }
 }
 
+//const mapDispatchToProps = dispatch => bindActionCreators({ onUserRegister }, dispatch);
+
+//export default connect(null, mapDispatchToProps)(Registro);
 export default Registro;
